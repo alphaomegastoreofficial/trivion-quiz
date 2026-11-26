@@ -1,5 +1,4 @@
-
-const CACHE_NAME = "trivion-cache-v1";
+const CACHE_NAME = "trivion-cache-v2";
 
 const APP_FILES = [
   "./",
@@ -7,10 +6,12 @@ const APP_FILES = [
   "./manifest.json",
   "./src/css/style.css",
   "./src/js/app.js",
-  "./data/questions.json"
+  "./data/questions.json",
+  "./assets/icons/icon-192.png",
+  "./assets/icons/icon-512.png"
 ];
 
-// Install: simpan file utama aplikasi.
+// INSTALL
 self.addEventListener("install", (event) => {
   event.waitUntil(
     caches.open(CACHE_NAME).then((cache) => {
@@ -21,13 +22,17 @@ self.addEventListener("install", (event) => {
   self.skipWaiting();
 });
 
-// Activate: hapus cache versi lama.
+// ACTIVATE
 self.addEventListener("activate", (event) => {
   event.waitUntil(
     caches.keys().then((cacheNames) => {
       return Promise.all(
         cacheNames
-          .filter((name) => name.startsWith("trivion-cache-") && name !== CACHE_NAME)
+          .filter(
+            (name) =>
+              name.startsWith("trivion-cache-") &&
+              name !== CACHE_NAME
+          )
           .map((name) => caches.delete(name))
       );
     })
@@ -36,7 +41,7 @@ self.addEventListener("activate", (event) => {
   self.clients.claim();
 });
 
-// Fetch: atur penggunaan cache dan jaringan.
+// FETCH
 self.addEventListener("fetch", (event) => {
   const request = event.request;
 
@@ -50,56 +55,68 @@ self.addEventListener("fetch", (event) => {
     return;
   }
 
-  // Data soal: utamakan jaringan, gunakan cache jika offline.
+  // QUESTION DATA: NETWORK FIRST
   if (url.pathname.endsWith("/data/questions.json")) {
     event.respondWith(
-      fetch(request)
-        .then((response) => {
-          if (response.ok) {
-            const responseCopy = response.clone();
+      (async () => {
+        try {
+          const response = await fetch(request);
 
-            caches.open(CACHE_NAME).then((cache) => {
-              cache.put(request, responseCopy);
-            });
+          if (response.ok) {
+            const cache = await caches.open(CACHE_NAME);
+            await cache.put(request, response.clone());
           }
 
           return response;
-        })
-        .catch(async () => {
+        } catch (error) {
           const cachedResponse = await caches.match(request);
 
           if (cachedResponse) {
             return cachedResponse;
           }
 
-          return new Response("Question data is unavailable offline.", {
-            status: 503,
-            headers: { "Content-Type": "text/plain" }
-          });
-        })
+          return new Response(
+            "Question data is unavailable offline.",
+            {
+              status: 503,
+              headers: {
+                "Content-Type": "text/plain"
+              }
+            }
+          );
+        }
+      })()
     );
 
     return;
   }
 
-  // Halaman dan aset aplikasi: utamakan cache.
+  // OTHER APP FILES: CACHE FIRST
   event.respondWith(
-    caches.match(request).then((cachedResponse) => {
+    (async () => {
+      const cachedResponse = await caches.match(request);
+
       if (cachedResponse) {
         return cachedResponse;
       }
 
-      return fetch(request).then((response) => {
-        if (response.ok) {
-          const responseCopy = response.clone();
+      try {
+        const response = await fetch(request);
 
-          caches.open(CACHE_NAME).then((cache) => {
-            cache.put(request, responseCopy);
-          });
+        if (response.ok) {
+          const cache = await caches.open(CACHE_NAME);
+          await cache.put(request, response.clone());
         }
 
         return response;
-      });
-    })
+      } catch (error) {
+        return new Response("TRIVION is currently offline.", {
+          status: 503,
+          headers: {
+            "Content-Type": "text/plain"
+          }
+        });
+      }
+    })()
   );
 });
