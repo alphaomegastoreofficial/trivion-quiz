@@ -1,0 +1,464 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+
+    <meta name="theme-color" content="#101B35">
+    <meta name="description" content="TRIVION - The Ultimate Quiz Experience. Challenge your knowledge, test your skills, and achieve victory.">
+
+    <meta name="application-name" content="TRIVION">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+    <title>TRIVION — The Ultimate Quiz Experience</title>
+
+    <link rel="manifest" href="manifest.json">
+    <link rel="icon" href="assets/icons/favicon.png">
+    <link rel="apple-touch-icon" href="assets/icons/icon-192.png">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Outfit:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="src/css/style.css">
+
+    <script src="src/js/app.js" defer></script>
+</head>
+
+<body>
+
+    <div class="app-container" id="app">
+
+        <!-- APPLICATION HEADER -->
+        <header class="app-header">
+
+            <a href="./" class="brand" aria-label="TRIVION Home">
+                <span class="brand-symbol">T.</span>
+
+                <span class="brand-content">
+                    <strong>TRIVION</strong>
+                    <small>THE ULTIMATE QUIZ EXPERIENCE</small>
+                </span>
+            </a>
+
+            <div class="header-actions">
+
+                <button
+                    type="button"
+                    class="icon-button"
+                    id="language-button"
+                    aria-label="Change language"
+                >
+                    <span id="language-label">ID</span>
+                </button>
+
+                <button
+                    type="button"
+                    class="icon-button"
+                    id="sound-button"
+                    aria-label="Toggle sound"
+                >
+                    <span id="sound-label">♪</span>
+                </button>
+
+            </div>
+
+        </header>
+
+
+        <!-- MAIN APPLICATION CONTENT -->
+        <main id="main-content">
+
+            <!-- HOME SCREEN -->
+            <section
+                class="screen home-screen active"
+                id="home-screen"
+                aria-labelledby="home-title"
+            >
+
+                <div class="hero-section">
+
+                    <div class="hero-decoration">
+                        <span class="decoration-orbit orbit-one"></span>
+                        <span class="decoration-orbit orbit-two"></span>
+                        <span class="decoration-core">T</span>
+                    </div>
+
+                    <div class="hero-content">
+
+                        <p class="eyebrow">
+                            KNOWLEDGE • CHALLENGE • VICTORY
+                        </p>
+
+                        <h1 id="home-title">
+                            Welcome to
+                            <span>TRIVION.</span>
+                        </h1>
+
+                        <p class="hero-description" id="home-description">
+                            Challenge your knowledge.
+                            Discover what you know.
+                            Prove what you can achieve.
+                        </p>
+
+                        <button
+                            type="button"
+                            class="primary-button"
+                            id="start-button"
+                        >
+                            <span id="start-button-label">START GAME</span>
+                            <span aria-hidden="true">→</span>
+                        </button>
+
+                    </div>
+
+                </div>
+
+
+                <!-- PLAYER INFORMATION -->
+                <section class="player-section">
+
+                    <div class="section-heading">
+                        <div>
+                            <p class="section-eyebrow">YOUR PROGRESS</p>
+                            <h2>Player Overview</h2>
+                        </div>
+                    </div>
+
+                    <div class="stats-grid">
+
+                        <article class="stat-card">
+                            <span class="stat-icon">★</span>
+                            <span class="stat-value" id="total-score">0</span>
+                            <span class="stat-label">Total Score</span>
+                        </article>
+
+                        <article class="stat-card">
+                            <span class="stat-icon">✓</span>
+                            <span class="stat-value" id="total-games">0</span>
+                            <span class="stat-label">Games Played</span>
+                        </article>
+
+                        <article class="stat-card">
+                            <span class="stat-icon">◆</span>
+                            <span class="stat-value" id="best-score">0</span>
+                            <span class="stat-label">Best Score</span>
+                        </article>
+
+                    </div>
+
+                </section>
+
+
+                <!-- GAME FEATURES -->
+                <section class="features-section">
+
+                    <div class="section-heading">
+                        <div>
+                            <p class="section-eyebrow">DISCOVER TRIVION</p>
+                            <h2>Game Experience</h2>
+                        </div>
+                    </div>
+
+                    <div class="features-grid">
+
+                        <article class="feature-card">
+                            <span class="feature-icon">◈</span>
+                            <h3>Multiple Categories</h3>
+                            <p>Explore different fields of knowledge.</p>
+                        </article>
+
+                        <article class="feature-card">
+                            <span class="feature-icon">◷</span>
+                            <h3>Time Challenge</h3>
+                            <p>Answer every question within 25 seconds.</p>
+                        </article>
+
+                        <article class="feature-card">
+                            <span class="feature-icon">◆</span>
+                            <h3>Competition</h3>
+                            <p>Improve your score and personal records.</p>
+                        </article>
+
+                        <article class="feature-card">
+                            <span class="feature-icon">◎</span>
+                            <h3>Offline Gameplay</h3>
+                            <p>Enjoy your quiz without an internet connection.</p>
+                        </article>
+
+                    </div>
+
+                </section>
+
+            </section>
+
+
+            <!-- CATEGORY SCREEN -->
+            <section
+                class="screen category-screen"
+                id="category-screen"
+                aria-labelledby="category-title"
+                hidden
+            >
+
+                <div class="screen-heading">
+                    <p class="section-eyebrow">CHOOSE YOUR CHALLENGE</p>
+                    <h2 id="category-title">Select Category</h2>
+                    <p>Choose a knowledge category to begin.</p>
+                </div>
+
+                <div class="category-grid" id="category-list">
+
+                    <button class="category-card" type="button" data-category="general">
+                        <span class="category-icon">🌍</span>
+                        <strong>General Knowledge</strong>
+                        <small>Pengetahuan Umum</small>
+                    </button>
+
+                    <button class="category-card" type="button" data-category="science">
+                        <span class="category-icon">🔬</span>
+                        <strong>Science & Technology</strong>
+                        <small>Sains dan Teknologi</small>
+                    </button>
+
+                    <button class="category-card" type="button" data-category="history">
+                        <span class="category-icon">🏛</span>
+                        <strong>History & Culture</strong>
+                        <small>Sejarah dan Budaya</small>
+                    </button>
+
+                    <button class="category-card" type="button" data-category="math">
+                        <span class="category-icon">∑</span>
+                        <strong>Mathematics & Logic</strong>
+                        <small>Matematika dan Logika</small>
+                    </button>
+
+                    <button class="category-card" type="button" data-category="nature">
+                        <span class="category-icon">🌿</span>
+                        <strong>Nature & Environment</strong>
+                        <small>Alam dan Lingkungan</small>
+                    </button>
+
+                    <button class="category-card" type="button" data-category="trivia">
+                        <span class="category-icon">💡</span>
+                        <strong>Riddles & Trivia</strong>
+                        <small>Teka-teki dan Trivia</small>
+                    </button>
+
+                </div>
+
+                <button type="button" class="secondary-button back-button" data-screen="home-screen">
+                    ← Back to Home
+                </button>
+
+            </section>
+
+
+            <!-- GAME SCREEN -->
+            <section
+                class="screen game-screen"
+                id="game-screen"
+                aria-labelledby="question-text"
+                hidden
+            >
+
+                <div class="game-topbar">
+
+                    <button type="button" class="text-button" id="exit-game-button">
+                        ← Exit
+                    </button>
+
+                    <span class="question-counter" id="question-counter">
+                        QUESTION 1 / 10
+                    </span>
+
+                </div>
+
+
+                <div class="game-progress">
+                    <div class="progress-track">
+                        <div class="progress-fill" id="question-progress"></div>
+                    </div>
+                </div>
+
+
+                <div class="game-info">
+
+                    <div class="timer-card">
+                        <span>TIME LEFT</span>
+                        <strong id="timer-display">25</strong>
+                    </div>
+
+                    <div class="score-card">
+                        <span>CURRENT SCORE</span>
+                        <strong id="current-score">0</strong>
+                    </div>
+
+                </div>
+
+
+                <div class="question-container">
+
+                    <p class="question-category" id="current-category">
+                        GENERAL KNOWLEDGE
+                    </p>
+
+                    <h2 id="question-text">
+                        Question will appear here.
+                    </h2>
+
+                    <div
+                        class="answer-options"
+                        id="answer-options"
+                        role="group"
+                        aria-label="Answer choices"
+                    >
+
+                        <button type="button" class="answer-option" data-answer="A">
+                            <span class="answer-letter">A</span>
+                            <span class="answer-text"></span>
+                        </button>
+
+                        <button type="button" class="answer-option" data-answer="B">
+                            <span class="answer-letter">B</span>
+                            <span class="answer-text"></span>
+                        </button>
+
+                        <button type="button" class="answer-option" data-answer="C">
+                            <span class="answer-letter">C</span>
+                            <span class="answer-text"></span>
+                        </button>
+
+                        <button type="button" class="answer-option" data-answer="D">
+                            <span class="answer-letter">D</span>
+                            <span class="answer-text"></span>
+                        </button>
+
+                    </div>
+
+                    <div class="feedback-message" id="answer-feedback" aria-live="polite"></div>
+
+                </div>
+
+            </section>
+
+
+            <!-- RESULT SCREEN -->
+            <section
+                class="screen result-screen"
+                id="result-screen"
+                aria-labelledby="result-title"
+                hidden
+            >
+
+                <div class="result-content">
+
+                    <div class="result-decoration">★</div>
+
+                    <p class="section-eyebrow">CHALLENGE COMPLETED</p>
+
+                    <h2 id="result-title">Quiz Completed!</h2>
+
+                    <p>Your performance summary</p>
+
+                    <div class="final-score-card">
+                        <span>YOUR FINAL SCORE</span>
+                        <strong id="final-score">0</strong>
+                        <small>POINTS</small>
+                    </div>
+
+                    <div class="result-stats">
+
+                        <div>
+                            <strong id="correct-answers">0</strong>
+                            <span>Correct</span>
+                        </div>
+
+                        <div>
+                            <strong id="wrong-answers">0</strong>
+                            <span>Incorrect</span>
+                        </div>
+
+                        <div>
+                            <strong id="accuracy-rate">0%</strong>
+                            <span>Accuracy</span>
+                        </div>
+
+                    </div>
+
+                    <button type="button" class="primary-button" id="play-again-button">
+                        PLAY AGAIN →
+                    </button>
+
+                    <button type="button" class="secondary-button" id="home-button">
+                        BACK TO HOME
+                    </button>
+
+                </div>
+
+            </section>
+
+
+            <!-- LEADERBOARD SCREEN -->
+            <section
+                class="screen leaderboard-screen"
+                id="leaderboard-screen"
+                aria-labelledby="leaderboard-title"
+                hidden
+            >
+
+                <div class="screen-heading">
+                    <p class="section-eyebrow">YOUR ACHIEVEMENTS</p>
+                    <h2 id="leaderboard-title">Leaderboard</h2>
+                    <p>Your personal top scores.</p>
+                </div>
+
+                <div class="leaderboard-list" id="leaderboard-list">
+                    <p class="empty-state">
+                        No scores recorded yet. Start playing!
+                    </p>
+                </div>
+
+                <button type="button" class="secondary-button" data-screen="home-screen">
+                    ← Back to Home
+                </button>
+
+            </section>
+
+        </main>
+
+
+        <!-- BOTTOM NAVIGATION -->
+        <nav class="bottom-navigation" aria-label="Main navigation">
+
+            <button type="button" class="nav-item active" data-screen="home-screen">
+                <span>⌂</span>
+                <small>Home</small>
+            </button>
+
+            <button type="button" class="nav-item" data-screen="category-screen">
+                <span>◈</span>
+                <small>Categories</small>
+            </button>
+
+            <button type="button" class="nav-item" data-screen="leaderboard-screen">
+                <span>★</span>
+                <small>Scores</small>
+            </button>
+
+        </nav>
+
+
+        <!-- APPLICATION FOOTER -->
+        <footer class="app-footer">
+            <p>TRIVION — THE ULTIMATE QUIZ EXPERIENCE</p>
+            <p>Developed by Alpha Omega Store</p>
+            <p>© 2026 TRIVION. All rights reserved.</p>
+        </footer>
+
+    </div>
+
+</body>
+</html>
