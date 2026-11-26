@@ -1,0 +1,2004 @@
+
+[
+  {
+    "id": "GEN-001",
+    "category": "general",
+    "difficulty": "easy",
+    "question": {
+      "id": "Apa ibu kota Indonesia?",
+      "en": "What is the capital of Indonesia?"
+    },
+    "options": {
+      "A": { "id": "Bandung", "en": "Bandung" },
+      "B": { "id": "Jakarta", "en": "Jakarta" },
+      "C": { "id": "Surabaya", "en": "Surabaya" },
+      "D": { "id": "Medan", "en": "Medan" }
+    },
+    "answer": "B",
+    "explanation": {
+      "id": "Jakarta merupakan ibu kota Indonesia. Pemindahan ibu kota ke Nusantara dilakukan secara bertahap.",
+      "en": "Jakarta is the capital of Indonesia. The transfer of the capital to Nusantara is being carried out gradually."
+    }
+  },
+  {
+    "id": "GEN-002",
+    "category": "general",
+    "difficulty": "easy",
+    "question": {
+      "id": "Berapa jumlah hari dalam satu tahun kabisat?",
+      "en": "How many days are there in a leap year?"
+    },
+    "options": {
+      "A": { "id": "364 hari", "en": "364 days" },
+      "B": { "id": "365 hari", "en": "365 days" },
+      "C": { "id": "366 hari", "en": "366 days" },
+      "D": { "id": "367 hari", "en": "367 days" }
+    },
+    "answer": "C",
+    "explanation": {
+      "id": "Tahun kabisat memiliki 366 hari karena Februari memiliki 29 hari.",
+      "en": "A leap year has 366 days because February has 29 days."
+    }
+  },
+  {
+    "id": "GEN-003",
+    "category": "general",
+    "difficulty": "easy",
+    "question": {
+      "id": "Benua terbesar di dunia berdasarkan luas wilayah adalah?",
+      "en": "Which is the largest continent in the world by land area?"
+    },
+    "options": {
+      "A": { "id": "Afrika", "en": "Africa" },
+      "B": { "id": "Eropa", "en": "Europe" },
+      "C": { "id": "Asia", "en": "Asia" },
+      "D": { "id": "Amerika Selatan", "en": "South America" }
+    },
+    "answer": "C",
+    "explanation": {
+      "id": "Asia merupakan benua terbesar di dunia berdasarkan luas wilayah.",
+      "en": "Asia is the largest continent in the world by land area."
+    }
+  },
+  {
+    "id": "GEN-004",
+    "category": "general",
+    "difficulty": "easy",
+    "question": {
+      "id": "Apa mata uang resmi Jepang?",
+      "en": "What is the official currency of Japan?"
+    },
+    "options": {
+      "A": { "id": "Won", "en": "Won" },
+      "B": { "id": "Yuan", "en": "Yuan" },
+      "C": { "id": "Yen", "en": "Yen" },
+      "D": { "id": "Ringgit", "en": "Ringgit" }
+    },
+    "answer": "C",
+    "explanation": {
+      "id": "Yen adalah mata uang resmi Jepang dengan kode mata uang JPY.",
+      "en": "The yen is Japan's official currency, with the currency code JPY."
+    }
+  },
+  {
+    "id": "GEN-005",
+    "category": "general",
+    "difficulty": "easy",
+    "question": {
+      "id": "Berapa jumlah warna utama pada pelangi yang biasa dikenal?",
+      "en": "How many main colors are traditionally identified in a rainbow?"
+    },
+    "options": {
+      "A": { "id": "5", "en": "5" },
+      "B": { "id": "6", "en": "6" },
+      "C": { "id": "7", "en": "7" },
+      "D": { "id": "8", "en": "8" }
+    },
+    "answer": "C",
+    "explanation": {
+      "id": "Pelangi secara tradisional dibagi menjadi tujuh warna: merah, jingga, kuning, hijau, biru, nila, dan ungu.",
+      "en": "A rainbow is traditionally divided into seven colors: red, orange, yellow, green, blue, indigo, and violet."
+    }
+  },
+  {
+    "id": "GEN-006",
+    "category": "general",
+    "difficulty": "easy",
+    "question": {
+      "id": "Siapa tokoh yang dikenal sebagai Proklamator Kemerdekaan Indonesia bersama Mohammad Hatta?",
+      "en": "Who is recognized as Indonesia's Proclaimer of Independence alongside Mohammad Hatta?"
+    },
+    "options": {
+      "A": { "id": "Soekarno", "en": "Soekarno" },
+      "B": { "id": "Soeharto", "en": "Soeharto" },
+      "C": { "id": "Ki Hajar Dewantara", "en": "Ki Hajar Dewantara" },
+      "D": { "id": "Jenderal Sudirman", "en": "General Sudirman" }
+    },
+    "answer": "A",
+    "explanation": {
+      "id": "Soekarno dan Mohammad Hatta memproklamasikan kemerdekaan Indonesia pada 17 Agustus 1945.",
+      "en": "Soekarno and Mohammad Hatta proclaimed Indonesia's independence on August 17, 1945."
+    }
+  },
+  {
+    "id": "GEN-007",
+    "category": "general",
+    "difficulty": "easy",
+    "question": {
+      "id": "Samudra terbesar di dunia adalah?",
+      "en": "What is the largest ocean in the world?"
+    },
+    "options": {
+      "A": { "id": "Samudra Atlantik", "en": "Atlantic Ocean" },
+      "B": { "id": "Samudra Hindia", "en": "Indian Ocean" },
+      "C": { "id": "Samudra Arktik", "en": "Arctic Ocean" },
+      "D": { "id": "Samudra Pasifik", "en": "Pacific Ocean" }
+    },
+    "answer": "D",
+    "explanation": {
+      "id": "Samudra Pasifik merupakan samudra terluas di Bumi.",
+      "en": "The Pacific Ocean is the largest ocean on Earth."
+    }
+  },
+  {
+    "id": "GEN-008",
+    "category": "general",
+    "difficulty": "easy",
+    "question": {
+      "id": "Apa bahasa resmi yang digunakan di Brasil?",
+      "en": "What is the official language of Brazil?"
+    },
+    "options": {
+      "A": { "id": "Spanyol", "en": "Spanish" },
+      "B": { "id": "Portugis", "en": "Portuguese" },
+      "C": { "id": "Inggris", "en": "English" },
+      "D": { "id": "Prancis", "en": "French" }
+    },
+    "answer": "B",
+    "explanation": {
+      "id": "Bahasa Portugis merupakan bahasa resmi Brasil, warisan sejarah kolonial Portugis.",
+      "en": "Portuguese is Brazil's official language, reflecting its history of Portuguese colonization."
+    }
+  },
+  {
+    "id": "GEN-009",
+    "category": "general",
+    "difficulty": "easy",
+    "question": {
+      "id": "Berapa jumlah pemain dalam satu tim sepak bola yang berada di lapangan pada awal pertandingan?",
+      "en": "How many players from one football team are on the field at the start of a match?"
+    },
+    "options": {
+      "A": { "id": "9 pemain", "en": "9 players" },
+      "B": { "id": "10 pemain", "en": "10 players" },
+      "C": { "id": "11 pemain", "en": "11 players" },
+      "D": { "id": "12 pemain", "en": "12 players" }
+    },
+    "answer": "C",
+    "explanation": {
+      "id": "Dalam pertandingan sepak bola standar, setiap tim memulai pertandingan dengan 11 pemain di lapangan.",
+      "en": "In a standard football match, each team starts with 11 players on the field."
+    }
+  },
+  {
+    "id": "GEN-010",
+    "category": "general",
+    "difficulty": "medium",
+    "question": {
+      "id": "Negara manakah yang dikenal sebagai tempat asal Olimpiade kuno?",
+      "en": "Which country is known as the birthplace of the ancient Olympic Games?"
+    },
+    "options": {
+      "A": { "id": "Italia", "en": "Italy" },
+      "B": { "id": "Yunani", "en": "Greece" },
+      "C": { "id": "Mesir", "en": "Egypt" },
+      "D": { "id": "Turki", "en": "Turkey" }
+    },
+    "answer": "B",
+    "explanation": {
+      "id": "Olimpiade kuno diselenggarakan di Olympia, Yunani, sebagai bagian dari tradisi keagamaan dan olahraga.",
+      "en": "The ancient Olympic Games were held in Olympia, Greece, as part of religious and athletic traditions."
+    }
+  },
+  {
+    "id": "GEN-011",
+    "category": "general",
+    "difficulty": "medium",
+    "question": {
+      "id": "Apa nama organisasi internasional yang didirikan pada 1945 untuk menjaga perdamaian dan keamanan dunia?",
+      "en": "What international organization was founded in 1945 to maintain world peace and security?"
+    },
+    "options": {
+      "A": { "id": "ASEAN", "en": "ASEAN" },
+      "B": { "id": "NATO", "en": "NATO" },
+      "C": { "id": "Perserikatan Bangsa-Bangsa", "en": "United Nations" },
+      "D": { "id": "Uni Eropa", "en": "European Union" }
+    },
+    "answer": "C",
+    "explanation": {
+      "id": "Perserikatan Bangsa-Bangsa atau PBB resmi berdiri pada 24 Oktober 1945.",
+      "en": "The United Nations was officially established on October 24, 1945."
+    }
+  },
+  {
+    "id": "GEN-012",
+    "category": "general",
+    "difficulty": "medium",
+    "question": {
+      "id": "Negara manakah yang memiliki Menara Eiffel?",
+      "en": "Which country is home to the Eiffel Tower?"
+    },
+    "options": {
+      "A": { "id": "Jerman", "en": "Germany" },
+      "B": { "id": "Prancis", "en": "France" },
+      "C": { "id": "Belgia", "en": "Belgium" },
+      "D": { "id": "Swiss", "en": "Switzerland" }
+    },
+    "answer": "B",
+    "explanation": {
+      "id": "Menara Eiffel terletak di Paris, ibu kota Prancis.",
+      "en": "The Eiffel Tower is located in Paris, the capital of France."
+    }
+  },
+  {
+    "id": "GEN-013",
+    "category": "general",
+    "difficulty": "medium",
+    "question": {
+      "id": "Apa nama mata uang resmi Inggris?",
+      "en": "What is the official currency of the United Kingdom?"
+    },
+    "options": {
+      "A": { "id": "Euro", "en": "Euro" },
+      "B": { "id": "Dolar", "en": "Dollar" },
+      "C": { "id": "Pound sterling", "en": "Pound sterling" },
+      "D": { "id": "Franc", "en": "Franc" }
+    },
+    "answer": "C",
+    "explanation": {
+      "id": "Mata uang resmi Britania Raya adalah pound sterling dengan kode GBP.",
+      "en": "The official currency of the United Kingdom is the pound sterling, with the code GBP."
+    }
+  },
+  {
+    "id": "GEN-014",
+    "category": "general",
+    "difficulty": "medium",
+    "question": {
+      "id": "Benua manakah yang memiliki jumlah negara terbanyak?",
+      "en": "Which continent has the largest number of countries?"
+    },
+    "options": {
+      "A": { "id": "Asia", "en": "Asia" },
+      "B": { "id": "Afrika", "en": "Africa" },
+      "C": { "id": "Eropa", "en": "Europe" },
+      "D": { "id": "Amerika Utara", "en": "North America" }
+    },
+    "answer": "B",
+    "explanation": {
+      "id": "Afrika memiliki jumlah negara berdaulat terbanyak di antara benua-benua.",
+      "en": "Africa has the largest number of sovereign countries among the continents."
+    }
+  },
+  {
+    "id": "GEN-015",
+    "category": "general",
+    "difficulty": "hard",
+    "question": {
+      "id": "Perjanjian internasional yang menjadi dasar pembentukan Uni Eropa modern adalah?",
+      "en": "Which treaty laid the foundation for the modern European Union?"
+    },
+    "options": {
+      "A": { "id": "Perjanjian Versailles", "en": "Treaty of Versailles" },
+      "B": { "id": "Perjanjian Maastricht", "en": "Maastricht Treaty" },
+      "C": { "id": "Perjanjian Tordesillas", "en": "Treaty of Tordesillas" },
+      "D": { "id": "Perjanjian Paris 1783", "en": "Treaty of Paris 1783" }
+    },
+    "answer": "B",
+    "explanation": {
+      "id": "Perjanjian Maastricht ditandatangani pada 1992 dan mulai berlaku pada 1993, membentuk Uni Eropa.",
+      "en": "The Maastricht Treaty was signed in 1992 and came into force in 1993, establishing the European Union."
+    }
+  },
+  {
+    "id": "GEN-016",
+    "category": "general",
+    "difficulty": "hard",
+    "question": {
+      "id": "Apa nama garis lintang yang berada pada 0 derajat dan membagi Bumi menjadi belahan utara dan selatan?",
+      "en": "What is the name of the 0-degree latitude line that divides Earth into the Northern and Southern Hemispheres?"
+    },
+    "options": {
+      "A": { "id": "Garis Balik Utara", "en": "Tropic of Cancer" },
+      "B": { "id": "Garis Balik Selatan", "en": "Tropic of Capricorn" },
+      "C": { "id": "Garis Khatulistiwa", "en": "Equator" },
+      "D": { "id": "Meridian Utama", "en": "Prime Meridian" }
+    },
+    "answer": "C",
+    "explanation": {
+      "id": "Garis khatulistiwa berada pada lintang 0 derajat dan membagi Bumi menjadi belahan utara dan selatan.",
+      "en": "The Equator lies at 0 degrees latitude and divides Earth into the Northern and Southern Hemispheres."
+    }
+  },
+  {
+    "id": "GEN-017",
+    "category": "general",
+    "difficulty": "hard",
+    "question": {
+      "id": "Negara manakah yang pertama memberikan hak pilih nasional kepada perempuan dalam pemilihan parlemen pada 1893?",
+      "en": "Which country first granted women the right to vote in national parliamentary elections in 1893?"
+    },
+    "options": {
+      "A": { "id": "Australia", "en": "Australia" },
+      "B": { "id": "Selandia Baru", "en": "New Zealand" },
+      "C": { "id": "Kanada", "en": "Canada" },
+      "D": { "id": "Norwegia", "en": "Norway" }
+    },
+    "answer": "B",
+    "explanation": {
+      "id": "Selandia Baru memberikan hak pilih parlementer kepada perempuan pada 1893, menjadi negara berpemerintahan sendiri pertama yang melakukannya.",
+      "en": "New Zealand granted women the parliamentary vote in 1893, becoming the first self-governing country to do so."
+    }
+  },
+  {
+    "id": "SCI-001",
+    "category": "science",
+    "difficulty": "easy",
+    "question": {
+      "id": "Planet manakah yang dikenal sebagai Planet Merah?",
+      "en": "Which planet is known as the Red Planet?"
+    },
+    "options": {
+      "A": { "id": "Venus", "en": "Venus" },
+      "B": { "id": "Mars", "en": "Mars" },
+      "C": { "id": "Jupiter", "en": "Jupiter" },
+      "D": { "id": "Merkurius", "en": "Mercury" }
+    },
+    "answer": "B",
+    "explanation": {
+      "id": "Mars tampak kemerahan karena permukaannya mengandung banyak mineral besi yang mengalami oksidasi.",
+      "en": "Mars appears reddish because its surface contains iron minerals that have oxidized."
+    }
+  },
+  {
+    "id": "SCI-002",
+    "category": "science",
+    "difficulty": "easy",
+    "question": {
+      "id": "Apa simbol kimia untuk air?",
+      "en": "What is the chemical formula for water?"
+    },
+    "options": {
+      "A": { "id": "CO₂", "en": "CO₂" },
+      "B": { "id": "O₂", "en": "O₂" },
+      "C": { "id": "H₂O", "en": "H₂O" },
+      "D": { "id": "NaCl", "en": "NaCl" }
+    },
+    "answer": "C",
+    "explanation": {
+      "id": "Satu molekul air terdiri dari dua atom hidrogen dan satu atom oksigen.",
+      "en": "One water molecule consists of two hydrogen atoms and one oxygen atom."
+    }
+  },
+  {
+    "id": "SCI-003",
+    "category": "science",
+    "difficulty": "easy",
+    "question": {
+      "id": "Organ tubuh manusia yang berfungsi memompa darah adalah?",
+      "en": "Which human organ pumps blood throughout the body?"
+    },
+    "options": {
+      "A": { "id": "Paru-paru", "en": "Lungs" },
+      "B": { "id": "Hati", "en": "Liver" },
+      "C": { "id": "Jantung", "en": "Heart" },
+      "D": { "id": "Ginjal", "en": "Kidneys" }
+    },
+    "answer": "C",
+    "explanation": {
+      "id": "Jantung memompa darah melalui sistem peredaran darah ke seluruh tubuh.",
+      "en": "The heart pumps blood through the circulatory system throughout the body."
+    }
+  },
+  {
+    "id": "SCI-004",
+    "category": "science",
+    "difficulty": "easy",
+    "question": {
+      "id": "Gas apa yang dibutuhkan manusia untuk bernapas?",
+      "en": "Which gas do humans need to breathe?"
+    },
+    "options": {
+      "A": { "id": "Nitrogen", "en": "Nitrogen" },
+      "B": { "id": "Oksigen", "en": "Oxygen" },
+      "C": { "id": "Karbon dioksida", "en": "Carbon dioxide" },
+      "D": { "id": "Helium", "en": "Helium" }
+    },
+    "answer": "B",
+    "explanation": {
+      "id": "Oksigen digunakan oleh sel tubuh dalam respirasi sel untuk menghasilkan energi.",
+      "en": "Oxygen is used by body cells in cellular respiration to produce energy."
+    }
+  },
+  {
+    "id": "SCI-005",
+    "category": "science",
+    "difficulty": "easy",
+    "question": {
+      "id": "Apa pusat tata surya kita?",
+      "en": "What is at the center of our Solar System?"
+    },
+    "options": {
+      "A": { "id": "Bumi", "en": "Earth" },
+      "B": { "id": "Bulan", "en": "The Moon" },
+      "C": { "id": "Matahari", "en": "The Sun" },
+      "D": { "id": "Jupiter", "en": "Jupiter" }
+    },
+    "answer": "C",
+    "explanation": {
+      "id": "Matahari berada di pusat tata surya dan planet-planet mengorbitnya karena gravitasi.",
+      "en": "The Sun is at the center of the Solar System, and the planets orbit it because of gravity."
+    }
+  },
+  {
+    "id": "SCI-006",
+    "category": "science",
+    "difficulty": "medium",
+    "question": {
+      "id": "Berapa suhu titik didih air murni pada tekanan atmosfer standar di permukaan laut?",
+      "en": "What is the boiling point of pure water at standard atmospheric pressure at sea level?"
+    },
+    "options": {
+      "A": { "id": "0°C", "en": "0°C" },
+      "B": { "id": "50°C", "en": "50°C" },
+      "C": { "id": "100°C", "en": "100°C" },
+      "D": { "id": "150°C", "en": "150°C" }
+    },
+    "answer": "C",
+    "explanation": {
+      "id": "Pada tekanan 1 atmosfer, air murni mendidih pada suhu sekitar 100°C.",
+      "en": "At 1 atmosphere of pressure, pure water boils at approximately 100°C."
+    }
+  },
+  {
+    "id": "SCI-007",
+    "category": "science",
+    "difficulty": "medium",
+    "question": {
+      "id": "Bagian sel yang berfungsi sebagai pusat pengendali aktivitas sel adalah?",
+      "en": "Which part of a cell controls most of its activities?"
+    },
+    "options": {
+      "A": { "id": "Membran sel", "en": "Cell membrane" },
+      "B": { "id": "Inti sel", "en": "Nucleus" },
+      "C": { "id": "Sitoplasma", "en": "Cytoplasm" },
+      "D": { "id": "Dinding sel", "en": "Cell wall" }
+    },
+    "answer": "B",
+    "explanation": {
+      "id": "Inti sel menyimpan sebagian besar materi genetik dan mengatur banyak aktivitas sel.",
+      "en": "The nucleus stores most of the genetic material and regulates many cell activities."
+    }
+  },
+  {
+    "id": "SCI-008",
+    "category": "science",
+    "difficulty": "medium",
+    "question": {
+      "id": "Apa satuan SI untuk gaya?",
+      "en": "What is the SI unit of force?"
+    },
+    "options": {
+      "A": { "id": "Joule", "en": "Joule" },
+      "B": { "id": "Watt", "en": "Watt" },
+      "C": { "id": "Newton", "en": "Newton" },
+      "D": { "id": "Pascal", "en": "Pascal" }
+    },
+    "answer": "C",
+    "explanation": {
+      "id": "Gaya diukur dalam newton, dinamai berdasarkan ilmuwan Isaac Newton.",
+      "en": "Force is measured in newtons, named after scientist Isaac Newton."
+    }
+  },
+  {
+    "id": "SCI-009",
+    "category": "science",
+    "difficulty": "medium",
+    "question": {
+      "id": "Lapisan ozon terutama berfungsi melindungi Bumi dari jenis radiasi apa?",
+      "en": "The ozone layer mainly protects Earth from which type of radiation?"
+    },
+    "options": {
+      "A": { "id": "Inframerah", "en": "Infrared" },
+      "B": { "id": "Ultraviolet", "en": "Ultraviolet" },
+      "C": { "id": "Gelombang radio", "en": "Radio waves" },
+      "D": { "id": "Gelombang suara", "en": "Sound waves" }
+    },
+    "answer": "B",
+    "explanation": {
+      "id": "Ozon di stratosfer menyerap sebagian besar radiasi ultraviolet berbahaya dari Matahari.",
+      "en": "Stratospheric ozone absorbs most of the Sun's harmful ultraviolet radiation."
+    }
+  },
+  {
+    "id": "SCI-010",
+    "category": "science",
+    "difficulty": "medium",
+    "question": {
+      "id": "Apa nama perubahan wujud dari gas menjadi cair?",
+      "en": "What is the change of state from gas to liquid called?"
+    },
+    "options": {
+      "A": { "id": "Sublimasi", "en": "Sublimation" },
+      "B": { "id": "Kondensasi", "en": "Condensation" },
+      "C": { "id": "Mencair", "en": "Melting" },
+      "D": { "id": "Membeku", "en": "Freezing" }
+    },
+    "answer": "B",
+    "explanation": {
+      "id": "Kondensasi terjadi ketika gas kehilangan energi panas dan berubah menjadi cairan.",
+      "en": "Condensation occurs when a gas loses thermal energy and changes into a liquid."
+    }
+  },
+  {
+    "id": "SCI-011",
+    "category": "science",
+    "difficulty": "medium",
+    "question": {
+      "id": "Berapa jumlah kromosom dalam sebagian besar sel tubuh manusia?",
+      "en": "How many chromosomes are found in most human body cells?"
+    },
+    "options": {
+      "A": { "id": "23", "en": "23" },
+      "B": { "id": "44", "en": "44" },
+      "C": { "id": "46", "en": "46" },
+      "D": { "id": "48", "en": "48" }
+    },
+    "answer": "C",
+    "explanation": {
+      "id": "Sebagian besar sel tubuh manusia memiliki 46 kromosom atau 23 pasang.",
+      "en": "Most human body cells contain 46 chromosomes, arranged in 23 pairs."
+    }
+  },
+  {
+    "id": "SCI-012",
+    "category": "science",
+    "difficulty": "medium",
+    "question": {
+      "id": "Apa nama gaya yang menarik benda bermassa ke arah satu sama lain?",
+      "en": "What is the force that attracts objects with mass toward each other?"
+    },
+    "options": {
+      "A": { "id": "Gesekan", "en": "Friction" },
+      "B": { "id": "Gravitasi", "en": "Gravity" },
+      "C": { "id": "Magnetisme", "en": "Magnetism" },
+      "D": { "id": "Elastisitas", "en": "Elasticity" }
+    },
+    "answer": "B",
+    "explanation": {
+      "id": "Gravitasi adalah gaya tarik-menarik antara benda-benda yang memiliki massa.",
+      "en": "Gravity is the attractive force between objects that have mass."
+    }
+  },
+  {
+    "id": "SCI-013",
+    "category": "science",
+    "difficulty": "hard",
+    "question": {
+      "id": "Apa partikel subatomik yang memiliki muatan listrik negatif?",
+      "en": "Which subatomic particle has a negative electric charge?"
+    },
+    "options": {
+      "A": { "id": "Proton", "en": "Proton" },
+      "B": { "id": "Neutron", "en": "Neutron" },
+      "C": { "id": "Elektron", "en": "Electron" },
+      "D": { "id": "Foton", "en": "Photon" }
+    },
+    "answer": "C",
+    "explanation": {
+      "id": "Elektron memiliki muatan negatif, proton positif, sedangkan neutron tidak memiliki muatan listrik.",
+      "en": "Electrons have a negative charge, protons are positive, and neutrons have no electric charge."
+    }
+  },
+  {
+    "id": "SCI-014",
+    "category": "science",
+    "difficulty": "hard",
+    "question": {
+      "id": "Apa nama proses pembelahan sel yang menghasilkan dua sel anak dengan jumlah kromosom sama seperti sel induk?",
+      "en": "What is the cell division process that produces two daughter cells with the same chromosome number as the parent cell?"
+    },
+    "options": {
+      "A": { "id": "Meiosis", "en": "Meiosis" },
+      "B": { "id": "Mitosis", "en": "Mitosis" },
+      "C": { "id": "Fertilisasi", "en": "Fertilization" },
+      "D": { "id": "Mutasi", "en": "Mutation" }
+    },
+    "answer": "B",
+    "explanation": {
+      "id": "Mitosis menghasilkan dua sel anak yang secara genetik umumnya sama dan memiliki jumlah kromosom yang sama dengan sel induk.",
+      "en": "Mitosis produces two generally genetically identical daughter cells with the same chromosome number as the parent cell."
+    }
+  },
+  {
+    "id": "SCI-015",
+    "category": "science",
+    "difficulty": "hard",
+    "question": {
+      "id": "Hukum Newton manakah yang menyatakan bahwa setiap aksi memiliki reaksi yang sama besar dan berlawanan arah?",
+      "en": "Which of Newton's laws states that every action has an equal and opposite reaction?"
+    },
+    "options": {
+      "A": { "id": "Hukum Newton I", "en": "Newton's First Law" },
+      "B": { "id": "Hukum Newton II", "en": "Newton's Second Law" },
+      "C": { "id": "Hukum Newton III", "en": "Newton's Third Law" },
+      "D": { "id": "Hukum Gravitasi", "en": "Law of Gravitation" }
+    },
+    "answer": "C",
+    "explanation": {
+      "id": "Hukum Newton III menjelaskan bahwa gaya selalu muncul berpasangan dengan besar sama dan arah berlawanan pada benda yang berbeda.",
+      "en": "Newton's Third Law states that forces occur in equal and opposite pairs acting on different objects."
+    }
+  },
+  {
+    "id": "SCI-016",
+    "category": "science",
+    "difficulty": "hard",
+    "question": {
+      "id": "Ikatan kimia yang terbentuk ketika atom berbagi pasangan elektron disebut?",
+      "en": "What is the chemical bond formed when atoms share pairs of electrons called?"
+    },
+    "options": {
+      "A": { "id": "Ikatan ion", "en": "Ionic bond" },
+      "B": { "id": "Ikatan kovalen", "en": "Covalent bond" },
+      "C": { "id": "Ikatan logam", "en": "Metallic bond" },
+      "D": { "id": "Ikatan hidrogen", "en": "Hydrogen bond" }
+    },
+    "answer": "B",
+    "explanation": {
+      "id": "Ikatan kovalen terbentuk ketika dua atom berbagi satu atau lebih pasangan elektron.",
+      "en": "A covalent bond forms when two atoms share one or more pairs of electrons."
+    }
+  },
+  {
+    "id": "SCI-017",
+    "category": "science",
+    "difficulty": "hard",
+    "question": {
+      "id": "Menurut teori relativitas khusus Einstein, apa yang tetap sama bagi semua pengamat inersial di ruang hampa?",
+      "en": "According to Einstein's special relativity, what remains constant for all inertial observers in a vacuum?"
+    },
+    "options": {
+      "A": { "id": "Kecepatan cahaya", "en": "The speed of light" },
+      "B": { "id": "Massa semua benda", "en": "The mass of every object" },
+      "C": { "id": "Panjang semua benda", "en": "The length of every object" },
+      "D": { "id": "Waktu semua pengamat", "en": "The time of every observer" }
+    },
+    "answer": "A",
+    "explanation": {
+      "id": "Kecepatan cahaya di ruang hampa memiliki nilai yang sama bagi semua pengamat inersial, terlepas dari gerak sumber atau pengamat.",
+      "en": "The speed of light in a vacuum is the same for all inertial observers, regardless of the motion of the source or observer."
+    }
+  },
+  {
+    "id": "HIS-001",
+    "category": "history",
+    "difficulty": "easy",
+    "question": {
+      "id": "Pada tanggal berapa Indonesia memproklamasikan kemerdekaannya?",
+      "en": "On what date did Indonesia proclaim its independence?"
+    },
+    "options": {
+      "A": { "id": "1 Juni 1945", "en": "June 1, 1945" },
+      "B": { "id": "17 Agustus 1945", "en": "August 17, 1945" },
+      "C": { "id": "10 November 1945", "en": "November 10, 1945" },
+      "D": { "id": "27 Desember 1949", "en": "December 27, 1949" }
+    },
+    "answer": "B",
+    "explanation": {
+      "id": "Proklamasi Kemerdekaan Indonesia dibacakan pada 17 Agustus 1945 di Jakarta.",
+      "en": "Indonesia's Proclamation of Independence was read on August 17, 1945, in Jakarta."
+    }
+  },
+  {
+    "id": "HIS-002",
+    "category": "history",
+    "difficulty": "easy",
+    "question": {
+      "id": "Siapa presiden pertama Republik Indonesia?",
+      "en": "Who was the first president of the Republic of Indonesia?"
+    },
+    "options": {
+      "A": { "id": "Mohammad Hatta", "en": "Mohammad Hatta" },
+      "B": { "id": "Soekarno", "en": "Soekarno" },
+      "C": { "id": "Soeharto", "en": "Soeharto" },
+      "D": { "id": "B. J. Habibie", "en": "B. J. Habibie" }
+    },
+    "answer": "B",
+    "explanation": {
+      "id": "Soekarno menjabat sebagai presiden pertama Indonesia sejak 1945.",
+      "en": "Soekarno served as Indonesia's first president beginning in 1945."
+    }
+  },
+  {
+    "id": "HIS-003",
+    "category": "history",
+    "difficulty": "easy",
+    "question": {
+      "id": "Bangunan bersejarah Taj Mahal berada di negara mana?",
+      "en": "In which country is the historic Taj Mahal located?"
+    },
+    "options": {
+      "A": { "id": "Pakistan", "en": "Pakistan" },
+      "B": { "id": "India", "en": "India" },
+      "C": { "id": "Bangladesh", "en": "Bangladesh" },
+      "D": { "id": "Nepal", "en": "Nepal" }
+    },
+    "answer": "B",
+    "explanation": {
+      "id": "Taj Mahal terletak di Agra, India, dan dibangun atas perintah Kaisar Mughal Shah Jahan.",
+      "en": "The Taj Mahal is located in Agra, India, and was commissioned by Mughal Emperor Shah Jahan."
+    }
+  },
+  {
+    "id": "HIS-004",
+    "category": "history",
+    "difficulty": "easy",
+    "question": {
+      "id": "Peradaban kuno manakah yang membangun piramida terkenal di Giza?",
+      "en": "Which ancient civilization built the famous pyramids at Giza?"
+    },
+    "options": {
+      "A": { "id": "Romawi", "en": "Roman" },
+      "B": { "id": "Mesir Kuno", "en": "Ancient Egyptian" },
+      "C": { "id": "Yunani Kuno", "en": "Ancient Greek" },
+      "D": { "id": "Persia", "en": "Persian" }
+    },
+    "answer": "B",
+    "explanation": {
+      "id": "Piramida Giza dibangun oleh masyarakat Mesir Kuno sebagai kompleks makam kerajaan.",
+      "en": "The Giza pyramids were built by ancient Egyptians as royal burial complexes."
+    }
+  },
+  {
+    "id": "HIS-005",
+    "category": "history",
+    "difficulty": "easy",
+    "question": {
+      "id": "Siapa tokoh yang dikenal memimpin perjuangan kemerdekaan India melalui gerakan tanpa kekerasan?",
+      "en": "Who is known for leading India's independence movement through nonviolent action?"
+    },
+    "options": {
+      "A": { "id": "Mahatma Gandhi", "en": "Mahatma Gandhi" },
+      "B": { "id": "Nelson Mandela", "en": "Nelson Mandela" },
+      "C": { "id": "Winston Churchill", "en": "Winston Churchill" },
+      "D": { "id": "Abraham Lincoln", "en": "Abraham Lincoln" }
+    },
+    "answer": "A",
+    "explanation": {
+      "id": "Mahatma Gandhi menjadi tokoh penting dalam gerakan kemerdekaan India dengan pendekatan perlawanan tanpa kekerasan.",
+      "en": "Mahatma Gandhi was a key figure in India's independence movement, advocating nonviolent resistance."
+    }
+  },
+  {
+    "id": "HIS-006",
+    "category": "history",
+    "difficulty": "easy",
+    "question": {
+      "id": "Tembok Berlin yang runtuh pada 1989 sebelumnya memisahkan wilayah kota mana?",
+      "en": "The Berlin Wall, which fell in 1989, had divided which city?"
+    },
+    "options": {
+      "A": { "id": "Munich", "en": "Munich" },
+      "B": { "id": "Berlin", "en": "Berlin" },
+      "C": { "id": "Hamburg", "en": "Hamburg" },
+      "D": { "id": "Frankfurt", "en": "Frankfurt" }
+    },
+    "answer": "B",
+    "explanation": {
+      "id": "Tembok Berlin memisahkan Berlin Timur dan Berlin Barat selama Perang Dingin.",
+      "en": "The Berlin Wall separated East Berlin and West Berlin during the Cold War."
+    }
+  },
+  {
+    "id": "HIS-007",
+    "category": "history",
+    "difficulty": "easy",
+    "question": {
+      "id": "Siapa penemu mesin cetak dengan huruf lepas yang terkenal di Eropa pada abad ke-15?",
+      "en": "Who is credited with developing the famous movable-type printing press in Europe in the 15th century?"
+    },
+    "options": {
+      "A": { "id": "Isaac Newton", "en": "Isaac Newton" },
+      "B": { "id": "Johannes Gutenberg", "en": "Johannes Gutenberg" },
+      "C": { "id": "Galileo Galilei", "en": "Galileo Galilei" },
+      "D": { "id": "Leonardo da Vinci", "en": "Leonardo da Vinci" }
+    },
+    "answer": "B",
+    "explanation": {
+      "id": "Johannes Gutenberg dikenal karena mengembangkan mesin cetak dengan huruf logam lepas di Eropa pada abad ke-15.",
+      "en": "Johannes Gutenberg is known for developing the movable metal-type printing press in Europe in the 15th century."
+    }
+  },
+  {
+    "id": "HIS-008",
+    "category": "history",
+    "difficulty": "medium",
+    "question": {
+      "id": "Peristiwa Sumpah Pemuda berlangsung pada tahun berapa?",
+      "en": "In what year did the Youth Pledge take place?"
+    },
+    "options": {
+      "A": { "id": "1908", "en": "1908" },
+      "B": { "id": "1928", "en": "1928" },
+      "C": { "id": "1945", "en": "1945" },
+      "D": { "id": "1950", "en": "1950" }
+    },
+    "answer": "B",
+    "explanation": {
+      "id": "Sumpah Pemuda diikrarkan pada 28 Oktober 1928 dalam Kongres Pemuda II.",
+      "en": "The Youth Pledge was declared on October 28, 1928, during the Second Youth Congress."
+    }
+  },
+  {
+    "id": "HIS-009",
+    "category": "history",
+    "difficulty": "medium",
+    "question": {
+      "id": "Perang Dunia II berakhir pada tahun berapa?",
+      "en": "In what year did World War II end?"
+    },
+    "options": {
+      "A": { "id": "1939", "en": "1939" },
+      "B": { "id": "1942", "en": "1942" },
+      "C": { "id": "1945", "en": "1945" },
+      "D": { "id": "1950", "en": "1950" }
+    },
+    "answer": "C",
+    "explanation": {
+      "id": "Perang Dunia II berakhir pada 1945 setelah penyerahan Jepang pada bulan Agustus dan September.",
+      "en": "World War II ended in 1945 following Japan's surrender in August and September."
+    }
+  },
+  {
+    "id": "HIS-010",
+    "category": "history",
+    "difficulty": "medium",
+    "question": {
+      "id": "Kerajaan maritim besar yang pernah berpusat di Sumatra dan berpengaruh di Asia Tenggara adalah?",
+      "en": "Which major maritime kingdom was once based in Sumatra and influential in Southeast Asia?"
+    },
+    "options": {
+      "A": { "id": "Majapahit", "en": "Majapahit" },
+      "B": { "id": "Sriwijaya", "en": "Srivijaya" },
+      "C": { "id": "Mataram Kuno", "en": "Ancient Mataram" },
+      "D": { "id": "Singasari", "en": "Singhasari" }
+    },
+    "answer": "B",
+    "explanation": {
+      "id": "Sriwijaya berkembang sebagai kekuatan maritim dan pusat perdagangan serta pembelajaran Buddha di Asia Tenggara.",
+      "en": "Srivijaya developed as a maritime power and a center of trade and Buddhist learning in Southeast Asia."
+    }
+  },
+  {
+    "id": "HIS-011",
+    "category": "history",
+    "difficulty": "medium",
+    "question": {
+      "id": "Revolusi Prancis dimulai pada tahun berapa?",
+      "en": "In what year did the French Revolution begin?"
+    },
+    "options": {
+      "A": { "id": "1776", "en": "1776" },
+      "B": { "id": "1789", "en": "1789" },
+      "C": { "id": "1815", "en": "1815" },
+      "D": { "id": "1848", "en": "1848" }
+    },
+    "answer": "B",
+    "explanation": {
+      "id": "Revolusi Prancis dimulai pada 1789 dan membawa perubahan besar dalam sistem politik serta masyarakat Prancis.",
+      "en": "The French Revolution began in 1789 and brought major changes to France's political and social systems."
+    }
+  },
+  {
+    "id": "HIS-012",
+    "category": "history",
+    "difficulty": "medium",
+    "question": {
+      "id": "Siapa kaisar Romawi yang secara tradisional dikenal sebagai kaisar pertama?",
+      "en": "Who is traditionally recognized as the first Roman emperor?"
+    },
+    "options": {
+      "A": { "id": "Julius Caesar", "en": "Julius Caesar" },
+      "B": { "id": "Augustus", "en": "Augustus" },
+      "C": { "id": "Nero", "en": "Nero" },
+      "D": { "id": "Constantine", "en": "Constantine" }
+    },
+    "answer": "B",
+    "explanation": {
+      "id": "Augustus menjadi kaisar pertama Romawi pada 27 SM setelah berakhirnya Republik Romawi.",
+      "en": "Augustus became the first Roman emperor in 27 BCE after the end of the Roman Republic."
+    }
+  },
+  {
+    "id": "HIS-013",
+    "category": "history",
+    "difficulty": "medium",
+    "question": {
+      "id": "Konferensi Asia-Afrika tahun 1955 diselenggarakan di kota mana?",
+      "en": "In which city was the 1955 Asian-African Conference held?"
+    },
+    "options": {
+      "A": { "id": "Jakarta", "en": "Jakarta" },
+      "B": { "id": "Bandung", "en": "Bandung" },
+      "C": { "id": "Yogyakarta", "en": "Yogyakarta" },
+      "D": { "id": "Surabaya", "en": "Surabaya" }
+    },
+    "answer": "B",
+    "explanation": {
+      "id": "Konferensi Asia-Afrika berlangsung di Bandung pada April 1955 dan menjadi tonggak solidaritas negara-negara Asia dan Afrika.",
+      "en": "The Asian-African Conference took place in Bandung in April 1955 and became a milestone in Asian and African solidarity."
+    }
+  },
+  {
+    "id": "HIS-014",
+    "category": "history",
+    "difficulty": "hard",
+    "question": {
+      "id": "Perjanjian apa yang ditandatangani Jerman dengan Sekutu pada 1919 setelah Perang Dunia I?",
+      "en": "Which treaty did Germany sign with the Allies in 1919 after World War I?"
+    },
+    "options": {
+      "A": { "id": "Perjanjian Versailles", "en": "Treaty of Versailles" },
+      "B": { "id": "Perjanjian Utrecht", "en": "Treaty of Utrecht" },
+      "C": { "id": "Perjanjian Tordesillas", "en": "Treaty of Tordesillas" },
+      "D": { "id": "Perjanjian Westfalen", "en": "Peace of Westphalia" }
+    },
+    "answer": "A",
+    "explanation": {
+      "id": "Perjanjian Versailles ditandatangani pada 28 Juni 1919 dan menetapkan ketentuan perdamaian bagi Jerman setelah Perang Dunia I.",
+      "en": "The Treaty of Versailles was signed on June 28, 1919, and established peace terms for Germany after World War I."
+    }
+  },
+  {
+    "id": "HIS-015",
+    "category": "history",
+    "difficulty": "hard",
+    "question": {
+      "id": "Dinasti Tiongkok manakah yang membangun sebagian besar bagian terkenal Tembok Besar yang masih terlihat hingga kini?",
+      "en": "Which Chinese dynasty built much of the famous sections of the Great Wall that remain visible today?"
+    },
+    "options": {
+      "A": { "id": "Dinasti Tang", "en": "Tang Dynasty" },
+      "B": { "id": "Dinasti Ming", "en": "Ming Dynasty" },
+      "C": { "id": "Dinasti Song", "en": "Song Dynasty" },
+      "D": { "id": "Dinasti Qing", "en": "Qing Dynasty" }
+    },
+    "answer": "B",
+    "explanation": {
+      "id": "Sebagian besar bagian Tembok Besar yang masih terkenal dan terpelihara dibangun atau diperkuat pada masa Dinasti Ming.",
+      "en": "Many of the best-known surviving sections of the Great Wall were built or strengthened during the Ming Dynasty."
+    }
+  },
+  {
+    "id": "HIS-016",
+    "category": "history",
+    "difficulty": "hard",
+    "question": {
+      "id": "Siapa penguasa Kekaisaran Mali yang terkenal karena perjalanan hajinya ke Makkah pada abad ke-14?",
+      "en": "Which ruler of the Mali Empire was famous for his pilgrimage to Mecca in the 14th century?"
+    },
+    "options": {
+      "A": { "id": "Sundiata Keita", "en": "Sundiata Keita" },
+      "B": { "id": "Mansa Musa", "en": "Mansa Musa" },
+      "C": { "id": "Askia Muhammad", "en": "Askia Muhammad" },
+      "D": { "id": "Shaka Zulu", "en": "Shaka Zulu" }
+    },
+    "answer": "B",
+    "explanation": {
+      "id": "Mansa Musa melakukan perjalanan haji pada 1324–1325 dan dikenal karena kekayaan serta pengaruhnya yang besar.",
+      "en": "Mansa Musa made his pilgrimage in 1324–1325 and became famous for his immense wealth and influence."
+    }
+  },
+  {
+    "id": "HIS-017",
+    "category": "history",
+    "difficulty": "hard",
+    "question": {
+      "id": "Peristiwa apa yang secara umum dianggap sebagai pemicu langsung Perang Dunia I pada 1914?",
+      "en": "Which event is generally considered the immediate trigger of World War I in 1914?"
+    },
+    "options": {
+      "A": { "id": "Invasi Polandia", "en": "The invasion of Poland" },
+      "B": { "id": "Pembunuhan Archduke Franz Ferdinand", "en": "The assassination of Archduke Franz Ferdinand" },
+      "C": { "id": "Revolusi Rusia", "en": "The Russian Revolution" },
+      "D": { "id": "Serangan ke Pearl Harbor", "en": "The attack on Pearl Harbor" }
+    },
+    "answer": "B",
+    "explanation": {
+      "id": "Archduke Franz Ferdinand dari Austria-Hongaria dibunuh di Sarajevo pada 28 Juni 1914. Peristiwa ini memicu krisis diplomatik yang berkembang menjadi perang.",
+      "en": "Archduke Franz Ferdinand of Austria-Hungary was assassinated in Sarajevo on June 28, 1914. This triggered a diplomatic crisis that escalated into war."
+    }
+  },
+
+  {
+    "id": "MAT-001",
+    "category": "math",
+    "difficulty": "easy",
+    "question": {
+      "id": "Berapakah hasil dari 8 + 7?",
+      "en": "What is the result of 8 + 7?"
+    },
+    "options": {
+      "A": { "id": "13", "en": "13" },
+      "B": { "id": "14", "en": "14" },
+      "C": { "id": "15", "en": "15" },
+      "D": { "id": "16", "en": "16" }
+    },
+    "answer": "C",
+    "explanation": {
+      "id": "8 + 7 = 15.",
+      "en": "8 + 7 = 15."
+    }
+  },
+  {
+    "id": "MAT-002",
+    "category": "math",
+    "difficulty": "easy",
+    "question": {
+      "id": "Berapakah hasil dari 9 × 6?",
+      "en": "What is 9 × 6?"
+    },
+    "options": {
+      "A": { "id": "45", "en": "45" },
+      "B": { "id": "54", "en": "54" },
+      "C": { "id": "56", "en": "56" },
+      "D": { "id": "63", "en": "63" }
+    },
+    "answer": "B",
+    "explanation": {
+      "id": "9 dikalikan 6 menghasilkan 54.",
+      "en": "9 multiplied by 6 equals 54."
+    }
+  },
+  {
+    "id": "MAT-003",
+    "category": "math",
+    "difficulty": "easy",
+    "question": {
+      "id": "Berapakah setengah dari 86?",
+      "en": "What is half of 86?"
+    },
+    "options": {
+      "A": { "id": "42", "en": "42" },
+      "B": { "id": "43", "en": "43" },
+      "C": { "id": "44", "en": "44" },
+      "D": { "id": "46", "en": "46" }
+    },
+    "answer": "B",
+    "explanation": {
+      "id": "86 dibagi 2 sama dengan 43.",
+      "en": "86 divided by 2 equals 43."
+    }
+  },
+  {
+    "id": "MAT-004",
+    "category": "math",
+    "difficulty": "easy",
+    "question": {
+      "id": "Berapakah hasil dari 100 − 37?",
+      "en": "What is 100 − 37?"
+    },
+    "options": {
+      "A": { "id": "53", "en": "53" },
+      "B": { "id": "57", "en": "57" },
+      "C": { "id": "63", "en": "63" },
+      "D": { "id": "67", "en": "67" }
+    },
+    "answer": "C",
+    "explanation": {
+      "id": "100 dikurangi 37 menghasilkan 63.",
+      "en": "100 minus 37 equals 63."
+    }
+  },
+  {
+    "id": "MAT-005",
+    "category": "math",
+    "difficulty": "medium",
+    "question": {
+      "id": "Berapakah 15% dari 240?",
+      "en": "What is 15% of 240?"
+    },
+    "options": {
+      "A": { "id": "24", "en": "24" },
+      "B": { "id": "30", "en": "30" },
+      "C": { "id": "36", "en": "36" },
+      "D": { "id": "40", "en": "40" }
+    },
+    "answer": "C",
+    "explanation": {
+      "id": "15% × 240 = 0,15 × 240 = 36.",
+      "en": "15% × 240 = 0.15 × 240 = 36."
+    }
+  },
+  {
+    "id": "MAT-006",
+    "category": "math",
+    "difficulty": "medium",
+    "question": {
+      "id": "Jika x + 12 = 29, berapakah nilai x?",
+      "en": "If x + 12 = 29, what is the value of x?"
+    },
+    "options": {
+      "A": { "id": "15", "en": "15" },
+      "B": { "id": "16", "en": "16" },
+      "C": { "id": "17", "en": "17" },
+      "D": { "id": "18", "en": "18" }
+    },
+    "answer": "C",
+    "explanation": {
+      "id": "Kurangi kedua sisi dengan 12: x = 29 − 12 = 17.",
+      "en": "Subtract 12 from both sides: x = 29 − 12 = 17."
+    }
+  },
+  {
+    "id": "MAT-007",
+    "category": "math",
+    "difficulty": "medium",
+    "question": {
+      "id": "Sebuah persegi memiliki sisi 9 cm. Berapakah luasnya?",
+      "en": "A square has sides of 9 cm. What is its area?"
+    },
+    "options": {
+      "A": { "id": "18 cm²", "en": "18 cm²" },
+      "B": { "id": "36 cm²", "en": "36 cm²" },
+      "C": { "id": "72 cm²", "en": "72 cm²" },
+      "D": { "id": "81 cm²", "en": "81 cm²" }
+    },
+    "answer": "D",
+    "explanation": {
+      "id": "Luas persegi = sisi × sisi = 9 × 9 = 81 cm².",
+      "en": "Square area = side × side = 9 × 9 = 81 cm²."
+    }
+  },
+  {
+    "id": "MAT-008",
+    "category": "math",
+    "difficulty": "medium",
+    "question": {
+      "id": "Berapa rata-rata dari 6, 8, 10, dan 16?",
+      "en": "What is the average of 6, 8, 10, and 16?"
+    },
+    "options": {
+      "A": { "id": "9", "en": "9" },
+      "B": { "id": "10", "en": "10" },
+      "C": { "id": "11", "en": "11" },
+      "D": { "id": "12", "en": "12" }
+    },
+    "answer": "B",
+    "explanation": {
+      "id": "Jumlahnya 40. Rata-rata = 40 ÷ 4 = 10.",
+      "en": "Their sum is 40. The average is 40 ÷ 4 = 10."
+    }
+  },
+  {
+    "id": "MAT-009",
+    "category": "math",
+    "difficulty": "medium",
+    "question": {
+      "id": "Sebuah kendaraan menempuh 180 km dalam 3 jam. Berapa kecepatan rata-ratanya?",
+      "en": "A vehicle travels 180 km in 3 hours. What is its average speed?"
+    },
+    "options": {
+      "A": { "id": "50 km/jam", "en": "50 km/h" },
+      "B": { "id": "55 km/jam", "en": "55 km/h" },
+      "C": { "id": "60 km/jam", "en": "60 km/h" },
+      "D": { "id": "65 km/jam", "en": "65 km/h" }
+    },
+    "answer": "C",
+    "explanation": {
+      "id": "Kecepatan = jarak ÷ waktu = 180 ÷ 3 = 60 km/jam.",
+      "en": "Speed = distance ÷ time = 180 ÷ 3 = 60 km/h."
+    }
+  },
+  {
+    "id": "MAT-010",
+    "category": "math",
+    "difficulty": "medium",
+    "question": {
+      "id": "Berapakah hasil dari 3² + 4²?",
+      "en": "What is the result of 3² + 4²?"
+    },
+    "options": {
+      "A": { "id": "12", "en": "12" },
+      "B": { "id": "18", "en": "18" },
+      "C": { "id": "25", "en": "25" },
+      "D": { "id": "49", "en": "49" }
+    },
+    "answer": "C",
+    "explanation": {
+      "id": "3² = 9 dan 4² = 16. Jumlahnya 25.",
+      "en": "3² = 9 and 4² = 16. Their sum is 25."
+    }
+  },
+  {
+    "id": "MAT-011",
+    "category": "math",
+    "difficulty": "hard",
+    "question": {
+      "id": "Jika 2x + 5 = 19, berapakah nilai x?",
+      "en": "If 2x + 5 = 19, what is the value of x?"
+    },
+    "options": {
+      "A": { "id": "5", "en": "5" },
+      "B": { "id": "6", "en": "6" },
+      "C": { "id": "7", "en": "7" },
+      "D": { "id": "8", "en": "8" }
+    },
+    "answer": "C",
+    "explanation": {
+      "id": "2x = 19 − 5 = 14, sehingga x = 14 ÷ 2 = 7.",
+      "en": "2x = 19 − 5 = 14, so x = 14 ÷ 2 = 7."
+    }
+  },
+  {
+    "id": "MAT-012",
+    "category": "math",
+    "difficulty": "hard",
+    "question": {
+      "id": "Sebuah segitiga memiliki alas 12 cm dan tinggi 7 cm. Berapa luasnya?",
+      "en": "A triangle has a base of 12 cm and a height of 7 cm. What is its area?"
+    },
+    "options": {
+      "A": { "id": "36 cm²", "en": "36 cm²" },
+      "B": { "id": "42 cm²", "en": "42 cm²" },
+      "C": { "id": "48 cm²", "en": "48 cm²" },
+      "D": { "id": "84 cm²", "en": "84 cm²" }
+    },
+    "answer": "B",
+    "explanation": {
+      "id": "Luas segitiga = ½ × alas × tinggi = ½ × 12 × 7 = 42 cm².",
+      "en": "Triangle area = ½ × base × height = ½ × 12 × 7 = 42 cm²."
+    }
+  },
+  {
+    "id": "MAT-013",
+    "category": "math",
+    "difficulty": "hard",
+    "question": {
+      "id": "Berapakah hasil dari 7! (tujuh faktorial)?",
+      "en": "What is the value of 7! (seven factorial)?"
+    },
+    "options": {
+      "A": { "id": "720", "en": "720" },
+      "B": { "id": "2.520", "en": "2,520" },
+      "C": { "id": "5.040", "en": "5,040" },
+      "D": { "id": "5.400", "en": "5,400" }
+    },
+    "answer": "C",
+    "explanation": {
+      "id": "7! = 7 × 6 × 5 × 4 × 3 × 2 × 1 = 5.040.",
+      "en": "7! = 7 × 6 × 5 × 4 × 3 × 2 × 1 = 5,040."
+    }
+  },
+  {
+    "id": "MAT-014",
+    "category": "math",
+    "difficulty": "hard",
+    "question": {
+      "id": "Jika sebuah bilangan dikalikan 3 lalu dikurangi 8 menghasilkan 28, berapakah bilangan tersebut?",
+      "en": "If a number is multiplied by 3 and then reduced by 8, the result is 28. What is the number?"
+    },
+    "options": {
+      "A": { "id": "10", "en": "10" },
+      "B": { "id": "11", "en": "11" },
+      "C": { "id": "12", "en": "12" },
+      "D": { "id": "13", "en": "13" }
+    },
+    "answer": "C",
+    "explanation": {
+      "id": "Misalkan bilangannya x. 3x − 8 = 28, jadi 3x = 36 dan x = 12.",
+      "en": "Let the number be x. 3x − 8 = 28, so 3x = 36 and x = 12."
+    }
+  },
+  {
+    "id": "MAT-015",
+    "category": "math",
+    "difficulty": "hard",
+    "question": {
+      "id": "Dua sudut sebuah segitiga adalah 48° dan 67°. Berapa besar sudut ketiganya?",
+      "en": "Two angles of a triangle are 48° and 67°. What is the third angle?"
+    },
+    "options": {
+      "A": { "id": "55°", "en": "55°" },
+      "B": { "id": "60°", "en": "60°" },
+      "C": { "id": "65°", "en": "65°" },
+      "D": { "id": "75°", "en": "75°" }
+    },
+    "answer": "C",
+    "explanation": {
+      "id": "Jumlah sudut segitiga 180°. Sudut ketiga = 180° − 48° − 67° = 65°.",
+      "en": "The angles of a triangle total 180°. The third angle is 180° − 48° − 67° = 65°."
+    }
+  },
+  {
+    "id": "MAT-016",
+    "category": "math",
+    "difficulty": "hard",
+    "question": {
+      "id": "Berapakah nilai akar kuadrat dari 2025?",
+      "en": "What is the square root of 2025?"
+    },
+    "options": {
+      "A": { "id": "35", "en": "35" },
+      "B": { "id": "40", "en": "40" },
+      "C": { "id": "45", "en": "45" },
+      "D": { "id": "55", "en": "55" }
+    },
+    "answer": "C",
+    "explanation": {
+      "id": "45 × 45 = 2025, jadi akar kuadratnya adalah 45.",
+      "en": "45 × 45 = 2025, so its square root is 45."
+    }
+  },
+  {
+    "id": "MAT-017",
+    "category": "math",
+    "difficulty": "hard",
+    "question": {
+      "id": "Dalam sebuah kantong terdapat 3 bola merah dan 2 bola biru. Berapa peluang mengambil bola biru dalam satu pengambilan?",
+      "en": "A bag contains 3 red balls and 2 blue balls. What is the probability of drawing a blue ball in one draw?"
+    },
+    "options": {
+      "A": { "id": "1/5", "en": "1/5" },
+      "B": { "id": "2/5", "en": "2/5" },
+      "C": { "id": "3/5", "en": "3/5" },
+      "D": { "id": "1/2", "en": "1/2" }
+    },
+    "answer": "B",
+    "explanation": {
+      "id": "Ada 2 bola biru dari total 5 bola. Peluangnya adalah 2/5.",
+      "en": "There are 2 blue balls out of 5 total balls. The probability is 2/5."
+    }
+  },
+  {
+    "id": "NAT-001",
+    "category": "nature",
+    "difficulty": "easy",
+    "question": {
+      "id": "Apa nama proses tumbuhan membuat makanan dengan bantuan cahaya matahari?",
+      "en": "What is the process by which plants make food using sunlight?"
+    },
+    "options": {
+      "A": { "id": "Respirasi", "en": "Respiration" },
+      "B": { "id": "Fotosintesis", "en": "Photosynthesis" },
+      "C": { "id": "Fermentasi", "en": "Fermentation" },
+      "D": { "id": "Evaporasi", "en": "Evaporation" }
+    },
+    "answer": "B",
+    "explanation": {
+      "id": "Fotosintesis menggunakan energi cahaya untuk mengubah air dan karbon dioksida menjadi gula dan oksigen.",
+      "en": "Photosynthesis uses light energy to convert water and carbon dioxide into sugar and oxygen."
+    }
+  },
+  {
+    "id": "NAT-002",
+    "category": "nature",
+    "difficulty": "easy",
+    "question": {
+      "id": "Hewan manakah yang dikenal sebagai mamalia terbesar di dunia?",
+      "en": "Which animal is known as the largest mammal in the world?"
+    },
+    "options": {
+      "A": { "id": "Gajah Afrika", "en": "African elephant" },
+      "B": { "id": "Jerapah", "en": "Giraffe" },
+      "C": { "id": "Paus biru", "en": "Blue whale" },
+      "D": { "id": "Badak putih", "en": "White rhinoceros" }
+    },
+    "answer": "C",
+    "explanation": {
+      "id": "Paus biru merupakan mamalia terbesar yang diketahui pernah hidup di Bumi.",
+      "en": "The blue whale is the largest known mammal to have lived on Earth."
+    }
+  },
+  {
+    "id": "NAT-003",
+    "category": "nature",
+    "difficulty": "easy",
+    "question": {
+      "id": "Apa sumber energi utama bagi sebagian besar kehidupan di Bumi?",
+      "en": "What is the primary energy source for most life on Earth?"
+    },
+    "options": {
+      "A": { "id": "Bulan", "en": "The Moon" },
+      "B": { "id": "Matahari", "en": "The Sun" },
+      "C": { "id": "Angin", "en": "Wind" },
+      "D": { "id": "Gunung berapi", "en": "Volcanoes" }
+    },
+    "answer": "B",
+    "explanation": {
+      "id": "Matahari menyediakan energi yang mendukung fotosintesis dan menggerakkan banyak proses alam.",
+      "en": "The Sun provides energy for photosynthesis and drives many natural processes."
+    }
+  },
+  {
+    "id": "NAT-004",
+    "category": "nature",
+    "difficulty": "easy",
+    "question": {
+      "id": "Apa nama lapisan gas yang menyelimuti Bumi?",
+      "en": "What is the name of the layer of gases surrounding Earth?"
+    },
+    "options": {
+      "A": { "id": "Hidrosfer", "en": "Hydrosphere" },
+      "B": { "id": "Litosfer", "en": "Lithosphere" },
+      "C": { "id": "Atmosfer", "en": "Atmosphere" },
+      "D": { "id": "Biosfer", "en": "Biosphere" }
+    },
+    "answer": "C",
+    "explanation": {
+      "id": "Atmosfer adalah lapisan gas yang mengelilingi Bumi.",
+      "en": "The atmosphere is the layer of gases surrounding Earth."
+    }
+  },
+  {
+    "id": "NAT-005",
+    "category": "nature",
+    "difficulty": "medium",
+    "question": {
+      "id": "Apa fungsi utama akar pada sebagian besar tumbuhan?",
+      "en": "What is the main function of roots in most plants?"
+    },
+    "options": {
+      "A": { "id": "Menghasilkan bunga", "en": "Producing flowers" },
+      "B": { "id": "Menyerap air dan mineral serta menopang tumbuhan", "en": "Absorbing water and minerals and anchoring the plant" },
+      "C": { "id": "Menghasilkan cahaya", "en": "Producing light" },
+      "D": { "id": "Menghasilkan biji secara langsung", "en": "Directly producing seeds" }
+    },
+    "answer": "B",
+    "explanation": {
+      "id": "Akar umumnya menyerap air dan mineral dari tanah serta membantu menambatkan tumbuhan.",
+      "en": "Roots generally absorb water and minerals from soil and help anchor the plant."
+    }
+  },
+  {
+    "id": "NAT-006",
+    "category": "nature",
+    "difficulty": "medium",
+    "question": {
+      "id": "Apa istilah untuk perubahan air cair menjadi uap air?",
+      "en": "What is the term for the change of liquid water into water vapor?"
+    },
+    "options": {
+      "A": { "id": "Kondensasi", "en": "Condensation" },
+      "B": { "id": "Pembekuan", "en": "Freezing" },
+      "C": { "id": "Evaporasi", "en": "Evaporation" },
+      "D": { "id": "Presipitasi", "en": "Precipitation" }
+    },
+    "answer": "C",
+    "explanation": {
+      "id": "Evaporasi adalah proses perubahan air cair menjadi gas atau uap air.",
+      "en": "Evaporation is the process in which liquid water changes into gas or water vapor."
+    }
+  },
+  {
+    "id": "NAT-007",
+    "category": "nature",
+    "difficulty": "medium",
+    "question": {
+      "id": "Bioma manakah yang memiliki curah hujan sangat rendah dan vegetasi yang jarang?",
+      "en": "Which biome has very low rainfall and sparse vegetation?"
+    },
+    "options": {
+      "A": { "id": "Hutan hujan tropis", "en": "Tropical rainforest" },
+      "B": { "id": "Gurun", "en": "Desert" },
+      "C": { "id": "Hutan bakau", "en": "Mangrove forest" },
+      "D": { "id": "Padang rumput tropis", "en": "Tropical grassland" }
+    },
+    "answer": "B",
+    "explanation": {
+      "id": "Gurun memiliki curah hujan sangat sedikit sehingga tumbuhan yang hidup di sana harus beradaptasi dengan kondisi kering.",
+      "en": "Deserts receive very little rainfall, so their plants must adapt to dry conditions."
+    }
+  },
+  {
+    "id": "NAT-008",
+    "category": "nature",
+    "difficulty": "medium",
+    "question": {
+      "id": "Gas apa yang paling banyak terdapat dalam atmosfer Bumi?",
+      "en": "Which gas is most abundant in Earth's atmosphere?"
+    },
+    "options": {
+      "A": { "id": "Oksigen", "en": "Oxygen" },
+      "B": { "id": "Karbon dioksida", "en": "Carbon dioxide" },
+      "C": { "id": "Nitrogen", "en": "Nitrogen" },
+      "D": { "id": "Hidrogen", "en": "Hydrogen" }
+    },
+    "answer": "C",
+    "explanation": {
+      "id": "Nitrogen membentuk sekitar 78% atmosfer Bumi.",
+      "en": "Nitrogen makes up about 78% of Earth's atmosphere."
+    }
+  },
+  {
+    "id": "NAT-009",
+    "category": "nature",
+    "difficulty": "medium",
+    "question": {
+      "id": "Apa sebutan bagi hubungan ketika kedua organisme memperoleh manfaat?",
+      "en": "What is the term for a relationship in which both organisms benefit?"
+    },
+    "options": {
+      "A": { "id": "Parasitisme", "en": "Parasitism" },
+      "B": { "id": "Komensalisme", "en": "Commensalism" },
+      "C": { "id": "Mutualisme", "en": "Mutualism" },
+      "D": { "id": "Predasi", "en": "Predation" }
+    },
+    "answer": "C",
+    "explanation": {
+      "id": "Mutualisme adalah interaksi ekologis yang memberikan manfaat kepada kedua organisme.",
+      "en": "Mutualism is an ecological interaction that benefits both organisms."
+    }
+  },
+  {
+    "id": "NAT-010",
+    "category": "nature",
+    "difficulty": "medium",
+    "question": {
+      "id": "Apa penyebab utama terjadinya pasang surut air laut?",
+      "en": "What is the main cause of ocean tides?"
+    },
+    "options": {
+      "A": { "id": "Tarikan gravitasi Bulan dan Matahari", "en": "The gravitational pull of the Moon and the Sun" },
+      "B": { "id": "Perubahan warna laut", "en": "Changes in ocean color" },
+      "C": { "id": "Aktivitas ikan", "en": "Fish activity" },
+      "D": { "id": "Hujan di daratan", "en": "Rainfall on land" }
+    },
+    "answer": "A",
+    "explanation": {
+      "id": "Pasang surut terutama dipengaruhi tarikan gravitasi Bulan, dengan pengaruh tambahan dari Matahari.",
+      "en": "Tides are mainly influenced by the Moon's gravity, with an additional influence from the Sun."
+    }
+  },
+  {
+    "id": "NAT-011",
+    "category": "nature",
+    "difficulty": "hard",
+    "question": {
+      "id": "Apa istilah untuk keanekaragaman kehidupan yang mencakup variasi gen, spesies, dan ekosistem?",
+      "en": "What term describes the variety of life, including genes, species, and ecosystems?"
+    },
+    "options": {
+      "A": { "id": "Biomassa", "en": "Biomass" },
+      "B": { "id": "Biodiversitas", "en": "Biodiversity" },
+      "C": { "id": "Biodegradasi", "en": "Biodegradation" },
+      "D": { "id": "Bioakumulasi", "en": "Bioaccumulation" }
+    },
+    "answer": "B",
+    "explanation": {
+      "id": "Biodiversitas mencakup keragaman genetik, spesies, dan ekosistem.",
+      "en": "Biodiversity includes genetic, species, and ecosystem diversity."
+    }
+  },
+  {
+    "id": "NAT-012",
+    "category": "nature",
+    "difficulty": "hard",
+    "question": {
+      "id": "Lapisan atmosfer tempat sebagian besar fenomena cuaca terjadi adalah?",
+      "en": "In which atmospheric layer do most weather events occur?"
+    },
+    "options": {
+      "A": { "id": "Stratosfer", "en": "Stratosphere" },
+      "B": { "id": "Mesosfer", "en": "Mesosphere" },
+      "C": { "id": "Troposfer", "en": "Troposphere" },
+      "D": { "id": "Termosfer", "en": "Thermosphere" }
+    },
+    "answer": "C",
+    "explanation": {
+      "id": "Troposfer adalah lapisan atmosfer paling bawah dan tempat berlangsungnya sebagian besar cuaca.",
+      "en": "The troposphere is the lowest atmospheric layer and where most weather occurs."
+    }
+  },
+  {
+    "id": "NAT-013",
+    "category": "nature",
+    "difficulty": "hard",
+    "question": {
+      "id": "Apa istilah untuk kemampuan ekosistem pulih setelah mengalami gangguan?",
+      "en": "What is the term for an ecosystem's ability to recover after a disturbance?"
+    },
+    "options": {
+      "A": { "id": "Resiliensi ekologi", "en": "Ecological resilience" },
+      "B": { "id": "Erosi", "en": "Erosion" },
+      "C": { "id": "Evaporasi", "en": "Evaporation" },
+      "D": { "id": "Fragmentasi", "en": "Fragmentation" }
+    },
+    "answer": "A",
+    "explanation": {
+      "id": "Resiliensi ekologi menggambarkan kemampuan sistem ekologi menyerap gangguan dan pulih tanpa kehilangan fungsi utamanya.",
+      "en": "Ecological resilience describes an ecosystem's ability to absorb disturbances and recover without losing its essential functions."
+    }
+  },
+  {
+    "id": "NAT-014",
+    "category": "nature",
+    "difficulty": "hard",
+    "question": {
+      "id": "Gas rumah kaca utama yang dilepaskan dari pembakaran bahan bakar fosil adalah?",
+      "en": "Which major greenhouse gas is released by burning fossil fuels?"
+    },
+    "options": {
+      "A": { "id": "Helium", "en": "Helium" },
+      "B": { "id": "Karbon dioksida", "en": "Carbon dioxide" },
+      "C": { "id": "Neon", "en": "Neon" },
+      "D": { "id": "Argon", "en": "Argon" }
+    },
+    "answer": "B",
+    "explanation": {
+      "id": "Pembakaran batu bara, minyak, dan gas melepaskan karbon dioksida yang berkontribusi pada efek rumah kaca.",
+      "en": "Burning coal, oil, and gas releases carbon dioxide, which contributes to the greenhouse effect."
+    }
+  },
+  {
+    "id": "NAT-015",
+    "category": "nature",
+    "difficulty": "hard",
+    "question": {
+      "id": "Apa nama proses ketika suatu spesies tidak lagi memiliki individu yang hidup di seluruh dunia?",
+      "en": "What is the term for when a species has no living individuals anywhere in the world?"
+    },
+    "options": {
+      "A": { "id": "Migrasi", "en": "Migration" },
+      "B": { "id": "Domestikasi", "en": "Domestication" },
+      "C": { "id": "Kepunahan", "en": "Extinction" },
+      "D": { "id": "Adaptasi", "en": "Adaptation" }
+    },
+    "answer": "C",
+    "explanation": {
+      "id": "Kepunahan terjadi ketika tidak ada lagi individu dari suatu spesies yang hidup.",
+      "en": "Extinction occurs when no individuals of a species remain alive."
+    }
+  },
+  {
+    "id": "NAT-016",
+    "category": "nature",
+    "difficulty": "hard",
+    "question": {
+      "id": "Dalam rantai makanan, organisme yang membuat makanan sendiri dari sumber anorganik disebut apa?",
+      "en": "In a food chain, what are organisms called when they make their own food from inorganic sources?"
+    },
+    "options": {
+      "A": { "id": "Konsumen", "en": "Consumers" },
+      "B": { "id": "Dekomposer", "en": "Decomposers" },
+      "C": { "id": "Produsen", "en": "Producers" },
+      "D": { "id": "Predator", "en": "Predators" }
+    },
+    "answer": "C",
+    "explanation": {
+      "id": "Produsen seperti tumbuhan menggunakan energi cahaya atau energi kimia untuk membuat bahan organik.",
+      "en": "Producers such as plants use light or chemical energy to make organic matter."
+    }
+  },
+  {
+    "id": "TRI-001",
+    "category": "trivia",
+    "difficulty": "easy",
+    "question": {
+      "id": "Apa yang memiliki jarum penunjuk waktu tetapi tidak bisa berbicara?",
+      "en": "What has hands that show the time but cannot speak?"
+    },
+    "options": {
+      "A": { "id": "Jam", "en": "A clock" },
+      "B": { "id": "Buku", "en": "A book" },
+      "C": { "id": "Cermin", "en": "A mirror" },
+      "D": { "id": "Kursi", "en": "A chair" }
+    },
+    "answer": "A",
+    "explanation": {
+      "id": "Jam memiliki jarum untuk menunjukkan waktu, tetapi tidak dapat berbicara.",
+      "en": "A clock has hands that indicate time, but it cannot speak."
+    }
+  },
+  {
+    "id": "TRI-002",
+    "category": "trivia",
+    "difficulty": "easy",
+    "question": {
+      "id": "Bulan apa yang memiliki 28 hari?",
+      "en": "Which month has 28 days?"
+    },
+    "options": {
+      "A": { "id": "Februari saja", "en": "February only" },
+      "B": { "id": "Januari saja", "en": "January only" },
+      "C": { "id": "Semua bulan", "en": "All months" },
+      "D": { "id": "Juni saja", "en": "June only" }
+    },
+    "answer": "C",
+    "explanation": {
+      "id": "Semua bulan memiliki setidaknya 28 hari.",
+      "en": "Every month has at least 28 days."
+    }
+  },
+  {
+    "id": "TRI-003",
+    "category": "trivia",
+    "difficulty": "easy",
+    "question": {
+      "id": "Jika kamu menyalip orang di posisi kedua dalam perlombaan, kamu berada di posisi berapa?",
+      "en": "If you overtake the person in second place in a race, what position are you in?"
+    },
+    "options": {
+      "A": { "id": "Pertama", "en": "First" },
+      "B": { "id": "Kedua", "en": "Second" },
+      "C": { "id": "Ketiga", "en": "Third" },
+      "D": { "id": "Keempat", "en": "Fourth" }
+    },
+    "answer": "B",
+    "explanation": {
+      "id": "Kamu mengambil posisi orang yang disalip, yaitu posisi kedua.",
+      "en": "You take the position of the person you overtook: second place."
+    }
+  },
+  {
+    "id": "TRI-004",
+    "category": "trivia",
+    "difficulty": "easy",
+    "question": {
+      "id": "Apa yang semakin basah ketika digunakan untuk mengeringkan sesuatu?",
+      "en": "What gets wetter as it dries something else?"
+    },
+    "options": {
+      "A": { "id": "Kipas", "en": "A fan" },
+      "B": { "id": "Handuk", "en": "A towel" },
+      "C": { "id": "Cermin", "en": "A mirror" },
+      "D": { "id": "Lampu", "en": "A lamp" }
+    },
+    "answer": "B",
+    "explanation": {
+      "id": "Handuk menyerap air dari benda lain sehingga menjadi basah.",
+      "en": "A towel absorbs water from other objects and becomes wet."
+    }
+  },
+  {
+    "id": "TRI-005",
+    "category": "trivia",
+    "difficulty": "medium",
+    "question": {
+      "id": "Berapa banyak sisi yang dimiliki sebuah heksagon?",
+      "en": "How many sides does a hexagon have?"
+    },
+    "options": {
+      "A": { "id": "5", "en": "5" },
+      "B": { "id": "6", "en": "6" },
+      "C": { "id": "7", "en": "7" },
+      "D": { "id": "8", "en": "8" }
+    },
+    "answer": "B",
+    "explanation": {
+      "id": "Heksagon adalah bangun datar yang memiliki enam sisi.",
+      "en": "A hexagon is a polygon with six sides."
+    }
+  },
+  {
+    "id": "TRI-006",
+    "category": "trivia",
+    "difficulty": "medium",
+    "question": {
+      "id": "Apa yang memiliki kota, sungai, dan jalan, tetapi tidak memiliki penduduk, air, atau kendaraan sungguhan?",
+      "en": "What has cities, rivers, and roads, but no actual people, water, or vehicles?"
+    },
+    "options": {
+      "A": { "id": "Peta", "en": "A map" },
+      "B": { "id": "Televisi", "en": "A television" },
+      "C": { "id": "Kalender", "en": "A calendar" },
+      "D": { "id": "Jam", "en": "A clock" }
+    },
+    "answer": "A",
+    "explanation": {
+      "id": "Peta menggambarkan lokasi dan fitur geografis, bukan benda atau orang yang sebenarnya.",
+      "en": "A map represents locations and geographic features rather than actual objects or people."
+    }
+  },
+  {
+    "id": "TRI-007",
+    "category": "trivia",
+    "difficulty": "medium",
+    "question": {
+      "id": "Jika ada tiga apel dan kamu mengambil dua, berapa apel yang kamu miliki?",
+      "en": "If there are three apples and you take two, how many apples do you have?"
+    },
+    "options": {
+      "A": { "id": "Satu", "en": "One" },
+      "B": { "id": "Dua", "en": "Two" },
+      "C": { "id": "Tiga", "en": "Three" },
+      "D": { "id": "Lima", "en": "Five" }
+    },
+    "answer": "B",
+    "explanation": {
+      "id": "Kamu mengambil dua apel, jadi dua apel itulah yang kamu miliki.",
+      "en": "You took two apples, so you have those two apples."
+    }
+  },
+  {
+    "id": "TRI-008",
+    "category": "trivia",
+    "difficulty": "medium",
+    "question": {
+      "id": "Apa yang bisa mengelilingi dunia tetapi tetap berada di satu sudut?",
+      "en": "What can travel around the world while staying in one corner?"
+    },
+    "options": {
+      "A": { "id": "Perangko", "en": "A postage stamp" },
+      "B": { "id": "Bola", "en": "A ball" },
+      "C": { "id": "Kompas", "en": "A compass" },
+      "D": { "id": "Payung", "en": "An umbrella" }
+    },
+    "answer": "A",
+    "explanation": {
+      "id": "Perangko dapat tetap berada di sudut amplop ketika amplop dikirim ke berbagai tempat.",
+      "en": "A postage stamp can stay in the corner of an envelope as it travels to different places."
+    }
+  },
+  {
+    "id": "TRI-009",
+    "category": "trivia",
+    "difficulty": "medium",
+    "question": {
+      "id": "Apa yang selalu datang tetapi tidak pernah benar-benar tiba?",
+      "en": "What is always coming but never actually arrives?"
+    },
+    "options": {
+      "A": { "id": "Kemarin", "en": "Yesterday" },
+      "B": { "id": "Hari esok", "en": "Tomorrow" },
+      "C": { "id": "Masa lalu", "en": "The past" },
+      "D": { "id": "Musim panas", "en": "Summer" }
+    },
+    "answer": "B",
+    "explanation": {
+      "id": "Ketika hari esok tiba, hari itu berubah menjadi hari ini.",
+      "en": "When tomorrow arrives, it becomes today."
+    }
+  },
+  {
+    "id": "TRI-010",
+    "category": "trivia",
+    "difficulty": "medium",
+    "question": {
+      "id": "Apa yang mempunyai leher tetapi tidak mempunyai kepala?",
+      "en": "What has a neck but no head?"
+    },
+    "options": {
+      "A": { "id": "Botol", "en": "A bottle" },
+      "B": { "id": "Kucing", "en": "A cat" },
+      "C": { "id": "Burung", "en": "A bird" },
+      "D": { "id": "Manusia", "en": "A human" }
+    },
+    "answer": "A",
+    "explanation": {
+      "id": "Botol memiliki bagian yang disebut leher botol, tetapi tidak memiliki kepala.",
+      "en": "A bottle has a part called a neck, but it has no head."
+    }
+  },
+  {
+    "id": "TRI-011",
+    "category": "trivia",
+    "difficulty": "hard",
+    "question": {
+      "id": "Dua ayah dan dua anak pergi memancing. Mereka mendapatkan tiga ikan dan masing-masing membawa satu ikan. Bagaimana mungkin?",
+      "en": "Two fathers and two sons go fishing. They catch three fish, and each takes one fish. How is this possible?"
+    },
+    "options": {
+      "A": { "id": "Satu orang membawa dua ikan", "en": "One person takes two fish" },
+      "B": { "id": "Mereka sebenarnya tiga orang: kakek, ayah, dan anak", "en": "There are only three people: a grandfather, a father, and a son" },
+      "C": { "id": "Ada ikan tambahan", "en": "There is an extra fish" },
+      "D": { "id": "Salah satu tidak membawa ikan", "en": "One of them takes no fish" }
+    },
+    "answer": "B",
+    "explanation": {
+      "id": "Ada tiga orang. Kakek adalah ayah, ayah adalah anak sekaligus ayah, dan anak adalah anak.",
+      "en": "There are three people. The grandfather is a father, the father is both a son and a father, and the child is a son."
+    }
+  },
+  {
+    "id": "TRI-012",
+    "category": "trivia",
+    "difficulty": "hard",
+    "question": {
+      "id": "Sebuah rumah satu lantai seluruhnya berwarna biru. Dinding, pintu, dan perabotannya biru. Apa warna tangganya?",
+      "en": "A one-story house is entirely blue. Its walls, doors, and furniture are blue. What color are the stairs?"
+    },
+    "options": {
+      "A": { "id": "Biru", "en": "Blue" },
+      "B": { "id": "Putih", "en": "White" },
+      "C": { "id": "Tidak ada tangga", "en": "There are no stairs" },
+      "D": { "id": "Hitam", "en": "Black" }
+    },
+    "answer": "C",
+    "explanation": {
+      "id": "Rumah satu lantai tidak memerlukan tangga untuk menuju lantai lain.",
+      "en": "A one-story house does not need stairs to reach another floor."
+    }
+  },
+  {
+    "id": "TRI-013",
+    "category": "trivia",
+    "difficulty": "hard",
+    "question": {
+      "id": "Seorang dokter memberikan tiga pil dan meminta pasien meminumnya satu pil setiap 30 menit. Berapa lama waktu yang diperlukan untuk menghabiskan semua pil?",
+      "en": "A doctor gives a patient three pills and says to take one every 30 minutes. How long does it take to finish all the pills?"
+    },
+    "options": {
+      "A": { "id": "30 menit", "en": "30 minutes" },
+      "B": { "id": "60 menit", "en": "60 minutes" },
+      "C": { "id": "90 menit", "en": "90 minutes" },
+      "D": { "id": "120 menit", "en": "120 minutes" }
+    },
+    "answer": "B",
+    "explanation": {
+      "id": "Pil pertama diminum pada menit ke-0, pil kedua pada menit ke-30, dan pil ketiga pada menit ke-60.",
+      "en": "The first pill is taken at minute 0, the second at minute 30, and the third at minute 60."
+    }
+  },
+  {
+    "id": "TRI-014",
+    "category": "trivia",
+    "difficulty": "hard",
+    "question": {
+      "id": "Ada lima lilin menyala. Dua lilin dipadamkan, sedangkan tiga lainnya dibiarkan menyala sampai habis. Berapa lilin yang tersisa?",
+      "en": "Five candles are burning. Two are extinguished, while the other three are left to burn out. How many candles remain?"
+    },
+    "options": {
+      "A": { "id": "Dua", "en": "Two" },
+      "B": { "id": "Tiga", "en": "Three" },
+      "C": { "id": "Lima", "en": "Five" },
+      "D": { "id": "Tidak ada", "en": "None" }
+    },
+    "answer": "A",
+    "explanation": {
+      "id": "Dua lilin yang dipadamkan tetap utuh, sedangkan tiga lilin lainnya habis terbakar.",
+      "en": "The two extinguished candles remain intact, while the other three burn away."
+    }
+  },
+  {
+    "id": "TRI-015",
+    "category": "trivia",
+    "difficulty": "hard",
+    "question": {
+      "id": "Jika sebuah pesawat jatuh tepat di perbatasan dua negara, di negara mana korban yang selamat harus dimakamkan?",
+      "en": "If a plane crashes exactly on the border between two countries, in which country should the survivors be buried?"
+    },
+    "options": {
+      "A": { "id": "Negara pertama", "en": "The first country" },
+      "B": { "id": "Negara kedua", "en": "The second country" },
+      "C": { "id": "Keduanya", "en": "Both countries" },
+      "D": { "id": "Tidak dimakamkan", "en": "They are not buried" }
+    },
+    "answer": "D",
+    "explanation": {
+      "id": "Korban yang selamat masih hidup, sehingga tidak dimakamkan.",
+      "en": "Survivors are alive, so they are not buried."
+    }
+  },
+  {
+    "id": "TRI-016",
+    "category": "trivia",
+    "difficulty": "hard",
+    "question": {
+      "id": "Sebuah keluarga memiliki enam anak laki-laki. Setiap anak laki-laki memiliki satu saudara perempuan yang sama. Berapa jumlah anak dalam keluarga tersebut?",
+      "en": "A family has six sons. Each son has the same one sister. How many children are in the family?"
+    },
+    "options": {
+      "A": { "id": "6", "en": "6" },
+      "B": { "id": "7", "en": "7" },
+      "C": { "id": "12", "en": "12" },
+      "D": { "id": "13", "en": "13" }
+    },
+    "answer": "B",
+    "explanation": {
+      "id": "Enam anak laki-laki memiliki satu saudara perempuan yang sama, sehingga totalnya tujuh anak.",
+      "en": "The six boys share the same one sister, making seven children in total."
+    }
+  }
+]
