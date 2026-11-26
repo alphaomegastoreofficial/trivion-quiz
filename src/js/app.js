@@ -1,27 +1,37 @@
-
 /* =========================================================
    TRIVION
    THE ULTIMATE QUIZ EXPERIENCE
+   KNOWLEDGE • CHALLENGE • VICTORY
    Developed by Alpha Omega Store
    ========================================================= */
 
 "use strict";
 
-/* =========================
-   CONFIGURATION
-========================= */
+/* =========================================================
+   1. GAME CONFIGURATION
+========================================================= */
 
 const CONFIG = {
   questionBank: "./data/questions.json",
   questionsPerGame: 10,
   pointsPerCorrectAnswer: 10,
   leaderboardLimit: 10,
+  answerDelay: 1600,
 
   timers: {
     easy: 40,
     medium: 60,
     hard: 65
   },
+
+  categories: [
+    "general",
+    "science",
+    "history",
+    "math",
+    "nature",
+    "trivia"
+  ],
 
   storage: {
     language: "trivion_language",
@@ -31,9 +41,9 @@ const CONFIG = {
   }
 };
 
-/* =========================
-   TRANSLATIONS
-========================= */
+/* =========================================================
+   2. LANGUAGE TRANSLATIONS
+========================================================= */
 
 const TEXT = {
   id: {
@@ -41,12 +51,12 @@ const TEXT = {
     homeDescription: "Uji pengetahuanmu dan jadilah juara!",
     start: "Mulai Bermain",
     categoryTitle: "Pilih Kategori",
+    categoryDescription: "Pilih kategori pengetahuan untuk memulai.",
     question: "Pertanyaan",
     correct: "Benar!",
     incorrect: "Kurang tepat!",
     timeout: "Waktu habis!",
     explanation: "Penjelasan",
-    next: "Pertanyaan Berikutnya",
     resultTitle: "Hasil Permainan",
     correctAnswers: "Jawaban Benar",
     wrongAnswers: "Jawaban Salah",
@@ -58,6 +68,37 @@ const TEXT = {
     loading: "Memuat pertanyaan...",
     loadError: "Gagal memuat bank soal. Periksa file questions.json.",
     exitConfirm: "Yakin ingin keluar dari permainan?",
+    emptyLeaderboard: "Belum ada catatan permainan. Ayo mulai bermain!",
+    backHome: "Kembali ke Beranda",
+    exit: "Keluar",
+    timeLeft: "WAKTU TERSISA",
+    currentScore: "SKOR SAAT INI",
+    finalScore: "SKOR AKHIR",
+    points: "POIN",
+    correctShort: "Benar",
+    incorrectShort: "Salah",
+    accuracyShort: "Akurasi",
+    questionOf: "PERTANYAAN",
+    totalScore: "Total Skor",
+    gamesPlayed: "Permainan Dimainkan",
+    bestScore: "Skor Terbaik",
+    chooseChallenge: "PILIH TANTANGANMU",
+    playerOverview: "Informasi Pemain",
+    yourProgress: "PROGRES KAMU",
+    discover: "TEMUKAN TRIVION",
+    gameExperience: "Pengalaman Bermain",
+    multipleCategories: "Beragam Kategori",
+    multipleCategoriesDescription: "Jelajahi berbagai bidang pengetahuan.",
+    timeChallenge: "Tantangan Waktu",
+    timeChallengeDescription: "Jawab setiap pertanyaan sebelum waktu habis.",
+    competition: "Kompetisi",
+    competitionDescription: "Tingkatkan skor dan catatan pribadimu.",
+    offline: "Permainan Offline",
+    offlineDescription: "Nikmati kuis tanpa koneksi internet setelah dimuat.",
+    challengeCompleted: "TANTANGAN SELESAI",
+    performanceSummary: "Ringkasan performamu",
+    yourAchievements: "PENCAPAIANMU",
+    personalTopScores: "Catatan skor terbaikmu.",
     categories: {
       general: "Pengetahuan Umum",
       science: "Sains dan Teknologi",
@@ -73,12 +114,12 @@ const TEXT = {
     homeDescription: "Test your knowledge and become a champion!",
     start: "Start Playing",
     categoryTitle: "Choose a Category",
+    categoryDescription: "Choose a knowledge category to begin.",
     question: "Question",
     correct: "Correct!",
     incorrect: "Not quite!",
     timeout: "Time is up!",
     explanation: "Explanation",
-    next: "Next Question",
     resultTitle: "Game Results",
     correctAnswers: "Correct Answers",
     wrongAnswers: "Wrong Answers",
@@ -90,6 +131,37 @@ const TEXT = {
     loading: "Loading questions...",
     loadError: "Could not load the question bank. Check questions.json.",
     exitConfirm: "Are you sure you want to leave the game?",
+    emptyLeaderboard: "No game records yet. Start playing!",
+    backHome: "Back to Home",
+    exit: "Exit",
+    timeLeft: "TIME LEFT",
+    currentScore: "CURRENT SCORE",
+    finalScore: "YOUR FINAL SCORE",
+    points: "POINTS",
+    correctShort: "Correct",
+    incorrectShort: "Incorrect",
+    accuracyShort: "Accuracy",
+    questionOf: "QUESTION",
+    totalScore: "Total Score",
+    gamesPlayed: "Games Played",
+    bestScore: "Best Score",
+    chooseChallenge: "CHOOSE YOUR CHALLENGE",
+    playerOverview: "Player Overview",
+    yourProgress: "YOUR PROGRESS",
+    discover: "DISCOVER TRIVION",
+    gameExperience: "Game Experience",
+    multipleCategories: "Multiple Categories",
+    multipleCategoriesDescription: "Explore different fields of knowledge.",
+    timeChallenge: "Time Challenge",
+    timeChallengeDescription: "Answer every question before time runs out.",
+    competition: "Competition",
+    competitionDescription: "Improve your score and personal records.",
+    offline: "Offline Gameplay",
+    offlineDescription: "Enjoy your quiz without an internet connection after loading.",
+    challengeCompleted: "CHALLENGE COMPLETED",
+    performanceSummary: "Your performance summary",
+    yourAchievements: "YOUR ACHIEVEMENTS",
+    personalTopScores: "Your personal top scores.",
     categories: {
       general: "General Knowledge",
       science: "Science and Technology",
@@ -101,15 +173,15 @@ const TEXT = {
   }
 };
 
-/* =========================
-   DOM HELPERS
-========================= */
+/* =========================================================
+   3. DOM HELPERS
+========================================================= */
 
-const $ = (selector) => document.querySelector(selector);
+const $ = (selector, parent = document) =>
+  parent.querySelector(selector);
 
-const $$ = (selector) => Array.from(
-  document.querySelectorAll(selector)
-);
+const $$ = (selector, parent = document) =>
+  Array.from(parent.querySelectorAll(selector));
 
 const elements = {
   app: $("#app"),
@@ -157,12 +229,14 @@ const elements = {
   leaderboardScreen: $("#leaderboard-screen"),
   leaderboardList: $("#leaderboard-list"),
 
-  footer: $("#app-footer")
+  footer: $("#app-footer") || $(".app-footer"),
+
+  mainContent: $("#main-content")
 };
 
-/* =========================
-   APPLICATION STATE
-========================= */
+/* =========================================================
+   4. APPLICATION STATE
+========================================================= */
 
 const state = {
   language: loadSetting(CONFIG.storage.language, "id"),
@@ -181,15 +255,23 @@ const state = {
 
   timeLeft: 0,
   timerInterval: null,
+  answerTimeout: null,
 
   answered: false,
   gameActive: false,
-  gameSession: 0
+  gameSession: 0,
+
+  lastAnswer: null,
+  wasTimeout: false,
+  lastFeedbackCorrect: false,
+
+  bankLoading: false,
+  bankLoadPromise: null
 };
 
-/* =========================
-   STORAGE HELPERS
-========================= */
+/* =========================================================
+   5. STORAGE SYSTEM
+========================================================= */
 
 function loadSetting(key, fallback) {
   try {
@@ -199,10 +281,13 @@ function loadSetting(key, fallback) {
       return fallback;
     }
 
-    return typeof fallback === "boolean"
-      ? saved === "true"
-      : saved;
+    if (typeof fallback === "boolean") {
+      return saved === "true";
+    }
+
+    return saved;
   } catch (error) {
+    console.warn("Could not read setting:", error);
     return fallback;
   }
 }
@@ -210,16 +295,24 @@ function loadSetting(key, fallback) {
 function saveSetting(key, value) {
   try {
     localStorage.setItem(key, String(value));
+    return true;
   } catch (error) {
-    console.warn("Storage unavailable:", error);
+    console.warn("Could not save setting:", error);
+    return false;
   }
 }
 
 function loadJSON(key, fallback) {
   try {
-    const value = localStorage.getItem(key);
-    return value ? JSON.parse(value) : fallback;
+    const saved = localStorage.getItem(key);
+
+    if (!saved) {
+      return fallback;
+    }
+
+    return JSON.parse(saved);
   } catch (error) {
+    console.warn("Could not read saved data:", error);
     return fallback;
   }
 }
@@ -227,21 +320,53 @@ function loadJSON(key, fallback) {
 function saveJSON(key, value) {
   try {
     localStorage.setItem(key, JSON.stringify(value));
+    return true;
   } catch (error) {
     console.warn("Could not save data:", error);
+    return false;
   }
 }
 
-/* =========================
-   LANGUAGE HELPERS
-========================= */
+function getDefaultStatistics() {
+  return {
+    totalGames: 0,
+    totalScore: 0,
+    bestScore: 0
+  };
+}
+
+function getStatistics() {
+  const saved = loadJSON(
+    CONFIG.storage.statistics,
+    getDefaultStatistics()
+  );
+
+  return {
+    totalGames: Number(saved.totalGames) || 0,
+    totalScore: Number(saved.totalScore) || 0,
+    bestScore: Number(saved.bestScore) || 0
+  };
+}
+
+function getLeaderboard() {
+  const saved = loadJSON(
+    CONFIG.storage.leaderboard,
+    []
+  );
+
+  return Array.isArray(saved) ? saved : [];
+}
+
+/* =========================================================
+   6. LANGUAGE SYSTEM
+========================================================= */
 
 function t(key) {
-  const languageText = TEXT[state.language];
+  const dictionary = TEXT[state.language] || TEXT.id;
 
   return key.split(".").reduce(
     (value, part) => value?.[part],
-    languageText
+    dictionary
   ) ?? key;
 }
 
@@ -254,7 +379,20 @@ function localized(value) {
     return "";
   }
 
-  return value[state.language] || value.id || value.en || "";
+  return (
+    value[state.language] ||
+    value.id ||
+    value.en ||
+    ""
+  );
+}
+
+function toggleLanguage() {
+  state.language = state.language === "id" ? "en" : "id";
+
+  saveSetting(CONFIG.storage.language, state.language);
+
+  updateStaticLanguage();
 }
 
 function updateStaticLanguage() {
@@ -284,12 +422,24 @@ function updateStaticLanguage() {
   }
 
   if (elements.playAgainButton) {
-    elements.playAgainButton.textContent = t("playAgain");
+    elements.playAgainButton.textContent =
+      `${t("playAgain")} →`;
   }
 
   if (elements.homeButton) {
-    elements.homeButton.textContent = t("home");
+    elements.homeButton.textContent = t("home").toUpperCase();
   }
+
+  if (elements.exitGameButton) {
+    elements.exitGameButton.textContent =
+      `← ${t("exit")}`;
+  }
+
+  updateHomeStaticText();
+  updateCategoryStaticText();
+  updateGameStaticText();
+  updateResultStaticText();
+  updateNavigationText();
 
   updateSoundLabel();
   updateStatistics();
@@ -297,25 +447,235 @@ function updateStaticLanguage() {
 
   if (state.currentQuestion && state.gameActive) {
     updateQuestionLanguage();
+    updateAnswerFeedbackLanguage();
   }
 
-  if (elements.currentCategory && state.currentCategory) {
+  if (state.currentCategory && elements.currentCategory) {
     elements.currentCategory.textContent =
-      t(`categories.${state.currentCategory}`);
+      t(`categories.${state.currentCategory}`).toUpperCase();
   }
 }
 
-function toggleLanguage() {
-  state.language = state.language === "id" ? "en" : "id";
+function updateHomeStaticText() {
+  const playerHeading = $(".player-section .section-heading h2");
 
-  saveSetting(CONFIG.storage.language, state.language);
+  if (playerHeading) {
+    playerHeading.textContent = t("playerOverview");
+  }
 
-  updateStaticLanguage();
+  const playerEyebrow = $(".player-section .section-eyebrow");
+
+  if (playerEyebrow) {
+    playerEyebrow.textContent = t("yourProgress");
+  }
+
+  const featureHeading = $(".features-section .section-heading h2");
+
+  if (featureHeading) {
+    featureHeading.textContent = t("gameExperience");
+  }
+
+  const featureEyebrow = $(".features-section .section-eyebrow");
+
+  if (featureEyebrow) {
+    featureEyebrow.textContent = t("discover");
+  }
+
+  const statLabels = $$(".stat-card .stat-label");
+
+  const labels = [
+    t("totalScore"),
+    t("gamesPlayed"),
+    t("bestScore")
+  ];
+
+  statLabels.forEach((label, index) => {
+    if (labels[index]) {
+      label.textContent = labels[index];
+    }
+  });
+
+  const featureCards = $$(".feature-card");
+
+  const features = [
+    [t("multipleCategories"), t("multipleCategoriesDescription")],
+    [t("timeChallenge"), t("timeChallengeDescription")],
+    [t("competition"), t("competitionDescription")],
+    [t("offline"), t("offlineDescription")]
+  ];
+
+  featureCards.forEach((card, index) => {
+    const heading = $("h3", card);
+    const description = $("p", card);
+
+    if (heading && features[index]) {
+      heading.textContent = features[index][0];
+    }
+
+    if (description && features[index]) {
+      description.textContent = features[index][1];
+    }
+  });
 }
 
-/* =========================
-   SOUND SYSTEM
-========================= */
+function updateCategoryStaticText() {
+  const eyebrow = $(".category-screen .section-eyebrow");
+
+  if (eyebrow) {
+    eyebrow.textContent = t("chooseChallenge");
+  }
+
+  const description = $(".category-screen .screen-heading > p:last-child");
+
+  if (description) {
+    description.textContent = t("categoryDescription");
+  }
+
+  const backButton = $(
+    '.category-screen [data-screen="home-screen"]'
+  );
+
+  if (backButton) {
+    backButton.textContent = `← ${t("backHome")}`;
+  }
+
+  const categoryButtons = $$("[data-category]");
+
+  categoryButtons.forEach((button) => {
+    const category = button.dataset.category;
+    const title = $("strong", button);
+    const subtitle = $("small", button);
+
+    if (title && CONFIG.categories.includes(category)) {
+      title.textContent = t(`categories.${category}`);
+    }
+
+    if (subtitle) {
+      const englishNames = {
+        general: "General Knowledge",
+        science: "Science & Technology",
+        history: "History & Culture",
+        math: "Mathematics & Logic",
+        nature: "Nature & Environment",
+        trivia: "Riddles & Trivia"
+      };
+
+      const indonesianNames = {
+        general: "Pengetahuan Umum",
+        science: "Sains dan Teknologi",
+        history: "Sejarah dan Budaya",
+        math: "Matematika dan Logika",
+        nature: "Alam dan Lingkungan",
+        trivia: "Teka-teki dan Trivia"
+      };
+
+      subtitle.textContent =
+        state.language === "id"
+          ? englishNames[category]
+          : indonesianNames[category];
+    }
+  });
+}
+
+function updateGameStaticText() {
+  const timerLabel = $(".timer-card span");
+
+  if (timerLabel) {
+    timerLabel.textContent = t("timeLeft");
+  }
+
+  const scoreLabel = $(".score-card span");
+
+  if (scoreLabel) {
+    scoreLabel.textContent = t("currentScore");
+  }
+}
+
+function updateResultStaticText() {
+  const eyebrow = $(".result-content .section-eyebrow");
+
+  if (eyebrow) {
+    eyebrow.textContent = t("challengeCompleted");
+  }
+
+  const description = $(".result-content > p:not(.section-eyebrow)");
+
+  if (description) {
+    description.textContent = t("performanceSummary");
+  }
+
+  const finalScoreLabel = $(".final-score-card > span");
+
+  if (finalScoreLabel) {
+    finalScoreLabel.textContent = t("finalScore");
+  }
+
+  const finalScoreUnit = $(".final-score-card > small");
+
+  if (finalScoreUnit) {
+    finalScoreUnit.textContent = t("points");
+  }
+
+  const resultLabels = $$(".result-stats > div span");
+
+  const labels = [
+    t("correctShort"),
+    t("incorrectShort"),
+    t("accuracyShort")
+  ];
+
+  resultLabels.forEach((label, index) => {
+    if (labels[index]) {
+      label.textContent = labels[index];
+    }
+  });
+}
+
+function updateNavigationText() {
+  const navigation = $$(".bottom-navigation .nav-item");
+
+  const labels = [
+    t("home"),
+    state.language === "id" ? "Kategori" : "Categories",
+    state.language === "id" ? "Skor" : "Scores"
+  ];
+
+  navigation.forEach((item, index) => {
+    const small = $("small", item);
+
+    if (small && labels[index]) {
+      small.textContent = labels[index];
+    }
+  });
+
+  const leaderboardEyebrow = $(
+    ".leaderboard-screen .section-eyebrow"
+  );
+
+  if (leaderboardEyebrow) {
+    leaderboardEyebrow.textContent = t("yourAchievements");
+  }
+
+  const leaderboardDescription = $(
+    ".leaderboard-screen .screen-heading > p:last-child"
+  );
+
+  if (leaderboardDescription) {
+    leaderboardDescription.textContent = t("personalTopScores");
+  }
+
+  const leaderboardBackButton = $(
+    '.leaderboard-screen [data-screen="home-screen"]'
+  );
+
+  if (leaderboardBackButton) {
+    leaderboardBackButton.textContent = `← ${t("backHome")}`;
+  }
+}
+
+/* =========================================================
+   7. SOUND SYSTEM
+========================================================= */
 
 let audioContext = null;
 
@@ -326,7 +686,8 @@ function playSound(type) {
 
   try {
     const AudioContextClass =
-      window.AudioContext || window.webkitAudioContext;
+      window.AudioContext ||
+      window.webkitAudioContext;
 
     if (!AudioContextClass) {
       return;
@@ -340,9 +701,6 @@ function playSound(type) {
       audioContext.resume();
     }
 
-    const oscillator = audioContext.createOscillator();
-    const gain = audioContext.createGain();
-
     const frequencies = {
       correct: 660,
       wrong: 220,
@@ -350,10 +708,11 @@ function playSound(type) {
       finish: 880
     };
 
-    oscillator.frequency.value =
-      frequencies[type] || 440;
+    const oscillator = audioContext.createOscillator();
+    const gain = audioContext.createGain();
 
     oscillator.type = "sine";
+    oscillator.frequency.value = frequencies[type] || 440;
 
     gain.gain.setValueAtTime(
       0.12,
@@ -376,12 +735,19 @@ function playSound(type) {
 }
 
 function updateSoundLabel() {
-  if (!elements.soundLabel) {
-    return;
+  if (elements.soundLabel) {
+    elements.soundLabel.textContent =
+      state.soundEnabled ? "ON" : "OFF";
   }
 
-  elements.soundLabel.textContent =
-    state.soundEnabled ? "ON" : "OFF";
+  if (elements.soundButton) {
+    elements.soundButton.setAttribute(
+      "aria-label",
+      state.soundEnabled
+        ? "Turn sound off"
+        : "Turn sound on"
+    );
+  }
 }
 
 function toggleSound() {
@@ -393,45 +759,81 @@ function toggleSound() {
   );
 
   updateSoundLabel();
-
   playSound("click");
 }
 
-/* =========================
-   SCREEN NAVIGATION
-========================= */
+/* =========================================================
+   8. SCREEN NAVIGATION
+========================================================= */
+
+const SCREEN_IDS = {
+  home: "home-screen",
+  category: "category-screen",
+  game: "game-screen",
+  result: "result-screen",
+  leaderboard: "leaderboard-screen"
+};
+
+function normalizeScreenName(value) {
+  if (!value) {
+    return null;
+  }
+
+  const normalized = String(value)
+    .replace("-screen", "")
+    .trim();
+
+  return Object.prototype.hasOwnProperty.call(
+    SCREEN_IDS,
+    normalized
+  )
+    ? normalized
+    : null;
+}
 
 function showScreen(screenName) {
-  const screens = [
-    "home",
-    "category",
-    "game",
-    "result",
-    "leaderboard"
-  ];
+  const normalized = normalizeScreenName(screenName);
 
-  screens.forEach((name) => {
-    const screen = $(`#${name}-screen`);
+  if (!normalized) {
+    console.warn("Unknown screen:", screenName);
+    return;
+  }
+
+  Object.entries(SCREEN_IDS).forEach(([name, id]) => {
+    const screen = $(`#${id}`);
 
     if (!screen) {
       return;
     }
 
-    const isActive = name === screenName;
+    const isActive = name === normalized;
 
     screen.hidden = !isActive;
     screen.classList.toggle("active", isActive);
   });
 
   $$("[data-screen]").forEach((button) => {
+    const target = normalizeScreenName(button.dataset.screen);
+
     button.classList.toggle(
       "active",
-      button.dataset.screen === screenName
+      target === normalized
     );
   });
 
   if (elements.footer) {
-    elements.footer.hidden = screenName === "game";
+    elements.footer.hidden = normalized === "game";
+  }
+
+  if (elements.mainContent) {
+    elements.mainContent.setAttribute(
+      "data-current-screen",
+      normalized
+    );
+  }
+
+  if (normalized === "leaderboard") {
+    renderLeaderboard();
   }
 
   window.scrollTo({
@@ -440,9 +842,30 @@ function showScreen(screenName) {
   });
 }
 
-/* =========================
-   QUESTION BANK
-========================= */
+/* =========================================================
+   9. QUESTION BANK VALIDATION
+========================================================= */
+
+function localizedForValidation(value) {
+  if (typeof value === "string") {
+    return value.trim().length > 0;
+  }
+
+  if (!value || typeof value !== "object") {
+    return false;
+  }
+
+  return Boolean(
+    (
+      typeof value.id === "string" &&
+      value.id.trim().length > 0
+    ) ||
+    (
+      typeof value.en === "string" &&
+      value.en.trim().length > 0
+    )
+  );
+}
 
 function validateQuestion(question) {
   if (!question || typeof question !== "object") {
@@ -451,8 +874,19 @@ function validateQuestion(question) {
 
   if (
     typeof question.id !== "string" ||
-    typeof question.category !== "string" ||
-    !["easy", "medium", "hard"].includes(question.difficulty)
+    !question.id.trim()
+  ) {
+    return false;
+  }
+
+  if (!CONFIG.categories.includes(question.category)) {
+    return false;
+  }
+
+  if (
+    !["easy", "medium", "hard"].includes(
+      question.difficulty
+    )
   ) {
     return false;
   }
@@ -461,38 +895,34 @@ function validateQuestion(question) {
     return false;
   }
 
-  if (!question.options || typeof question.options !== "object") {
+  if (
+    !question.options ||
+    typeof question.options !== "object"
+  ) {
     return false;
   }
 
-  const answers = ["A", "B", "C", "D"];
+  const answerLetters = ["A", "B", "C", "D"];
 
-  for (const answer of answers) {
-    if (!localizedForValidation(question.options[answer])) {
+  for (const letter of answerLetters) {
+    if (!localizedForValidation(question.options[letter])) {
       return false;
     }
   }
 
-  if (!answers.includes(question.answer)) {
+  if (!answerLetters.includes(question.answer)) {
+    return false;
+  }
+
+  if (
+    question.explanation !== undefined &&
+    question.explanation !== null &&
+    !localizedForValidation(question.explanation)
+  ) {
     return false;
   }
 
   return true;
-}
-
-function localizedForValidation(value) {
-  if (typeof value === "string") {
-    return value.trim().length > 0;
-  }
-
-  return Boolean(
-    value &&
-    typeof value === "object" &&
-    (
-      (typeof value.id === "string" && value.id.trim()) ||
-      (typeof value.en === "string" && value.en.trim())
-    )
-  );
 }
 
 async function loadQuestionBank() {
@@ -500,37 +930,59 @@ async function loadQuestionBank() {
     return true;
   }
 
-  try {
-    const response = await fetch(CONFIG.questionBank, {
-      cache: "no-cache"
-    });
-
-    if (!response.ok) {
-      throw new Error("Question bank not found.");
-    }
-
-    const data = await response.json();
-
-    if (!Array.isArray(data)) {
-      throw new Error("Invalid question bank format.");
-    }
-
-    state.questions = data.filter(validateQuestion);
-
-    if (state.questions.length === 0) {
-      throw new Error("No valid questions found.");
-    }
-
-    return true;
-  } catch (error) {
-    console.error("Question bank error:", error);
-    return false;
+  if (state.bankLoadPromise) {
+    return state.bankLoadPromise;
   }
+
+  state.bankLoading = true;
+
+  state.bankLoadPromise = (async () => {
+    try {
+      const response = await fetch(CONFIG.questionBank, {
+        cache: "no-cache"
+      });
+
+      if (!response.ok) {
+        throw new Error(
+          `Question bank request failed: ${response.status}`
+        );
+      }
+
+      const data = await response.json();
+
+      if (!Array.isArray(data)) {
+        throw new Error("Question bank must be a JSON array.");
+      }
+
+      const validQuestions = data.filter(validateQuestion);
+
+      if (validQuestions.length === 0) {
+        throw new Error("No valid questions found.");
+      }
+
+      state.questions = validQuestions;
+
+      console.info(
+        `TRIVION: ${validQuestions.length} questions loaded.`
+      );
+
+      return true;
+    } catch (error) {
+      console.error("Question bank error:", error);
+      state.questions = [];
+      return false;
+    } finally {
+      state.bankLoading = false;
+      state.bankLoadPromise = null;
+    }
+  })();
+
+  return state.bankLoadPromise;
 }
 
-/* =========================
-   CATEGORY SELECTION
-========================= */
+/* =========================================================
+   10. CATEGORY SELECTION
+========================================================= */
 
 function openCategorySelection() {
   showScreen("category");
@@ -545,32 +997,54 @@ function getCategoryQuestions(category) {
 function shuffleArray(array) {
   const shuffled = [...array];
 
-  for (let i = shuffled.length - 1; i > 0; i--) {
-    const j = Math.floor(Math.random() * (i + 1));
+  for (let index = shuffled.length - 1; index > 0; index--) {
+    const randomIndex = Math.floor(
+      Math.random() * (index + 1)
+    );
 
-    [shuffled[i], shuffled[j]] =
-      [shuffled[j], shuffled[i]];
+    [shuffled[index], shuffled[randomIndex]] = [
+      shuffled[randomIndex],
+      shuffled[index]
+    ];
   }
 
   return shuffled;
 }
 
-/* =========================
-   GAME INITIALIZATION
-========================= */
+/* =========================================================
+   11. GAME INITIALIZATION
+========================================================= */
 
 async function startGame(category) {
+  if (!CONFIG.categories.includes(category)) {
+    console.error("Invalid category:", category);
+    return;
+  }
+
   const session = ++state.gameSession;
 
   stopTimer();
+  clearAnswerTimeout();
 
   state.gameActive = false;
   state.answered = false;
+  state.currentCategory = category;
+  state.currentQuestion = null;
+
+  state.lastAnswer = null;
+  state.wasTimeout = false;
+
+  resetAnswerButtons();
 
   showScreen("game");
 
   if (elements.questionText) {
     elements.questionText.textContent = t("loading");
+  }
+
+  if (elements.answerFeedback) {
+    elements.answerFeedback.hidden = true;
+    elements.answerFeedback.textContent = "";
   }
 
   const loaded = await loadQuestionBank();
@@ -581,8 +1055,7 @@ async function startGame(category) {
 
   if (!loaded) {
     showScreen("category");
-
-    alert(t("loadError"));
+    window.alert(t("loadError"));
     return;
   }
 
@@ -590,32 +1063,40 @@ async function startGame(category) {
 
   if (availableQuestions.length < CONFIG.questionsPerGame) {
     showScreen("category");
-
-    alert(t("noQuestions"));
+    window.alert(t("noQuestions"));
     return;
   }
-
-  state.currentCategory = category;
 
   state.selectedQuestions = shuffleArray(
     availableQuestions
   ).slice(0, CONFIG.questionsPerGame);
 
   state.currentQuestionIndex = 0;
+
   state.score = 0;
   state.correctCount = 0;
   state.wrongCount = 0;
 
+  state.timeLeft = 0;
   state.gameActive = true;
+  state.answered = false;
+
+  if (elements.currentScore) {
+    elements.currentScore.textContent = "0";
+  }
 
   renderQuestion();
 }
 
-/* =========================
-   QUESTION RENDERING
-========================= */
+/* =========================================================
+   12. QUESTION RENDERING
+========================================================= */
 
 function renderQuestion() {
+  if (!state.gameActive) {
+    return;
+  }
+
   const question =
     state.selectedQuestions[state.currentQuestionIndex];
 
@@ -626,17 +1107,28 @@ function renderQuestion() {
 
   state.currentQuestion = question;
   state.answered = false;
+  state.lastAnswer = null;
+  state.wasTimeout = false;
+  state.lastFeedbackCorrect = false;
+
+  resetAnswerButtons();
 
   const questionNumber = state.currentQuestionIndex + 1;
 
   if (elements.questionCounter) {
     elements.questionCounter.textContent =
-      `${questionNumber} / ${CONFIG.questionsPerGame}`;
+      `${t("questionOf")} ${questionNumber} / ${state.selectedQuestions.length}`;
   }
 
   if (elements.questionProgress) {
-    elements.questionProgress.style.width =
-      `${(questionNumber / CONFIG.questionsPerGame) * 100}%`;
+    const progress =
+      (questionNumber / state.selectedQuestions.length) * 100;
+
+    elements.questionProgress.style.width = `${progress}%`;
+    elements.questionProgress.setAttribute(
+      "aria-valuenow",
+      String(Math.round(progress))
+    );
   }
 
   if (elements.currentScore) {
@@ -645,12 +1137,16 @@ function renderQuestion() {
 
   if (elements.currentCategory) {
     elements.currentCategory.textContent =
-      t(`categories.${state.currentCategory}`);
+      t(`categories.${state.currentCategory}`).toUpperCase();
   }
 
   if (elements.answerFeedback) {
     elements.answerFeedback.hidden = true;
     elements.answerFeedback.textContent = "";
+    elements.answerFeedback.classList.remove(
+      "correct",
+      "incorrect"
+    );
   }
 
   updateQuestionLanguage();
@@ -679,7 +1175,7 @@ function updateQuestionLanguage() {
       return;
     }
 
-    const textElement = button.querySelector(".answer-text");
+    const textElement = $(".answer-text", button);
 
     if (textElement) {
       textElement.textContent =
@@ -688,13 +1184,13 @@ function updateQuestionLanguage() {
   });
 
   if (state.answered) {
-    updateAnswerExplanation();
+    updateAnswerFeedbackLanguage();
   }
 }
 
-/* =========================
-   TIMER SYSTEM
-========================= */
+/* =========================================================
+   13. TIMER SYSTEM
+========================================================= */
 
 function startTimer(difficulty) {
   stopTimer();
@@ -704,13 +1200,13 @@ function startTimer(difficulty) {
 
   updateTimerDisplay();
 
-  state.timerInterval = setInterval(() => {
+  state.timerInterval = window.setInterval(() => {
     if (!state.gameActive || state.answered) {
       stopTimer();
       return;
     }
 
-    state.timeLeft--;
+    state.timeLeft = Math.max(0, state.timeLeft - 1);
 
     updateTimerDisplay();
 
@@ -721,8 +1217,8 @@ function startTimer(difficulty) {
 }
 
 function stopTimer() {
-  if (state.timerInterval) {
-    clearInterval(state.timerInterval);
+  if (state.timerInterval !== null) {
+    window.clearInterval(state.timerInterval);
     state.timerInterval = null;
   }
 }
@@ -738,11 +1234,34 @@ function updateTimerDisplay() {
     "timer-warning",
     state.timeLeft <= 10
   );
+
+  elements.timerDisplay.setAttribute(
+    "aria-label",
+    `${state.timeLeft} seconds`
+  );
 }
 
-/* =========================
-   ANSWER SYSTEM
-========================= */
+/* =========================================================
+   14. ANSWER BUTTON RESET
+========================================================= */
+
+function resetAnswerButtons() {
+  $$(".answer-option").forEach((button) => {
+    button.disabled = false;
+
+    button.classList.remove(
+      "correct",
+      "incorrect",
+      "selected"
+    );
+
+    button.removeAttribute("aria-pressed");
+  });
+}
+
+/* =========================================================
+   15. ANSWER SYSTEM
+========================================================= */
 
 function handleAnswer(selectedAnswer) {
   if (
@@ -758,11 +1277,15 @@ function handleAnswer(selectedAnswer) {
   }
 
   state.answered = true;
+  state.lastAnswer = selectedAnswer;
+  state.wasTimeout = false;
 
   stopTimer();
 
   const isCorrect =
     selectedAnswer === state.currentQuestion.answer;
+
+  state.lastFeedbackCorrect = isCorrect;
 
   if (isCorrect) {
     state.correctCount++;
@@ -781,51 +1304,38 @@ function handleAnswer(selectedAnswer) {
   }
 
   updateAnswerButtons(selectedAnswer);
-
   showAnswerFeedback(isCorrect);
-
   updateAnswerExplanation();
 
-  const session = state.gameSession;
-
-  window.setTimeout(() => {
-    if (session !== state.gameSession || !state.gameActive) {
-      return;
-    }
-
-    goToNextQuestion();
-  }, 1600);
+  scheduleNextQuestion();
 }
 
 function handleTimeout() {
-  if (state.answered || !state.gameActive) {
+  if (!state.gameActive || state.answered) {
     return;
   }
 
   state.answered = true;
+  state.lastAnswer = null;
+  state.wasTimeout = true;
+  state.lastFeedbackCorrect = false;
 
   stopTimer();
 
   state.wrongCount++;
 
   updateAnswerButtons(null);
-
   showAnswerFeedback(false, true);
-
   updateAnswerExplanation();
 
-  const session = state.gameSession;
-
-  window.setTimeout(() => {
-    if (session !== state.gameSession || !state.gameActive) {
-      return;
-    }
-
-    goToNextQuestion();
-  }, 1600);
+  scheduleNextQuestion();
 }
 
 function updateAnswerButtons(selectedAnswer) {
+  if (!state.currentQuestion) {
+    return;
+  }
+
   const correctAnswer = state.currentQuestion.answer;
 
   $$(".answer-option").forEach((button) => {
@@ -844,8 +1354,21 @@ function updateAnswerButtons(selectedAnswer) {
     } else if (answer === selectedAnswer) {
       button.classList.add("incorrect");
     }
+
+    if (answer === selectedAnswer) {
+      button.classList.add("selected");
+    }
+
+    button.setAttribute(
+      "aria-pressed",
+      String(answer === selectedAnswer)
+    );
   });
 }
+
+/* =========================================================
+   16. ANSWER FEEDBACK AND EXPLANATION
+========================================================= */
 
 function showAnswerFeedback(isCorrect, timeout = false) {
   if (!elements.answerFeedback) {
@@ -863,11 +1386,13 @@ function showAnswerFeedback(isCorrect, timeout = false) {
     isCorrect ? "correct" : "incorrect"
   );
 
-  elements.answerFeedback.textContent = timeout
+  const message = timeout
     ? t("timeout")
     : isCorrect
       ? t("correct")
       : t("incorrect");
+
+  elements.answerFeedback.textContent = message;
 }
 
 function updateAnswerExplanation() {
@@ -883,13 +1408,58 @@ function updateAnswerExplanation() {
     return;
   }
 
-  elements.answerFeedback.textContent +=
-    ` ${t("explanation")}: ${explanation}`;
+  const message = state.wasTimeout
+    ? t("timeout")
+    : state.lastFeedbackCorrect
+      ? t("correct")
+      : t("incorrect");
+
+  elements.answerFeedback.textContent =
+    `${message} ${t("explanation")}: ${explanation}`;
 }
 
-/* =========================
-   QUESTION PROGRESSION
-========================= */
+function updateAnswerFeedbackLanguage() {
+  if (!state.answered || !elements.answerFeedback) {
+    return;
+  }
+
+  showAnswerFeedback(
+    state.lastFeedbackCorrect,
+    state.wasTimeout
+  );
+
+  updateAnswerExplanation();
+}
+
+/* =========================================================
+   17. QUESTION PROGRESSION
+========================================================= */
+
+function clearAnswerTimeout() {
+  if (state.answerTimeout !== null) {
+    window.clearTimeout(state.answerTimeout);
+    state.answerTimeout = null;
+  }
+}
+
+function scheduleNextQuestion() {
+  clearAnswerTimeout();
+
+  const currentSession = state.gameSession;
+
+  state.answerTimeout = window.setTimeout(() => {
+    state.answerTimeout = null;
+
+    if (
+      currentSession !== state.gameSession ||
+      !state.gameActive
+    ) {
+      return;
+    }
+
+    goToNextQuestion();
+  }, CONFIG.answerDelay);
+}
 
 function goToNextQuestion() {
   if (!state.gameActive) {
@@ -909,19 +1479,28 @@ function goToNextQuestion() {
   renderQuestion();
 }
 
-/* =========================
-   GAME RESULTS
-========================= */
+/* =========================================================
+   18. GAME RESULTS
+========================================================= */
 
 function finishGame() {
+  if (!state.gameActive) {
+    return;
+  }
+
   stopTimer();
+  clearAnswerTimeout();
 
   state.gameActive = false;
   state.answered = true;
 
-  const accuracy = Math.round(
-    (state.correctCount / CONFIG.questionsPerGame) * 100
-  );
+  const totalQuestions = state.selectedQuestions.length;
+
+  const accuracy = totalQuestions > 0
+    ? Math.round(
+        (state.correctCount / totalQuestions) * 100
+      )
+    : 0;
 
   if (elements.finalScore) {
     elements.finalScore.textContent = state.score;
@@ -943,27 +1522,20 @@ function finishGame() {
   }
 
   saveGameResult();
-
   updateStatistics();
+  renderLeaderboard();
 
   playSound("finish");
 
   showScreen("result");
 }
 
-/* =========================
-   STATISTICS
-========================= */
+/* =========================================================
+   19. SAVE GAME RESULT
+========================================================= */
 
 function saveGameResult() {
-  const statistics = loadJSON(
-    CONFIG.storage.statistics,
-    {
-      totalGames: 0,
-      totalScore: 0,
-      bestScore: 0
-    }
-  );
+  const statistics = getStatistics();
 
   statistics.totalGames++;
   statistics.totalScore += state.score;
@@ -978,19 +1550,23 @@ function saveGameResult() {
     statistics
   );
 
-  const leaderboard = loadJSON(
-    CONFIG.storage.leaderboard,
-    []
-  );
+  const leaderboard = getLeaderboard();
 
   leaderboard.push({
     score: state.score,
     correct: state.correctCount,
+    wrong: state.wrongCount,
     category: state.currentCategory,
     date: new Date().toISOString()
   });
 
-  leaderboard.sort((a, b) => b.score - a.score);
+  leaderboard.sort((first, second) => {
+    if (second.score !== first.score) {
+      return second.score - first.score;
+    }
+
+    return second.correct - first.correct;
+  });
 
   saveJSON(
     CONFIG.storage.leaderboard,
@@ -998,15 +1574,12 @@ function saveGameResult() {
   );
 }
 
+/* =========================================================
+   20. PLAYER STATISTICS
+========================================================= */
+
 function updateStatistics() {
-  const statistics = loadJSON(
-    CONFIG.storage.statistics,
-    {
-      totalGames: 0,
-      totalScore: 0,
-      bestScore: 0
-    }
-  );
+  const statistics = getStatistics();
 
   if (elements.totalScore) {
     elements.totalScore.textContent =
@@ -1024,64 +1597,102 @@ function updateStatistics() {
   }
 }
 
-/* =========================
-   LEADERBOARD
-========================= */
+/* =========================================================
+   21. LEADERBOARD
+========================================================= */
 
 function renderLeaderboard() {
   if (!elements.leaderboardList) {
     return;
   }
 
-  const leaderboard = loadJSON(
-    CONFIG.storage.leaderboard,
-    []
-  );
+  const leaderboard = getLeaderboard();
 
   elements.leaderboardList.innerHTML = "";
 
   if (leaderboard.length === 0) {
     const emptyMessage = document.createElement("p");
 
-    emptyMessage.textContent =
-      state.language === "id"
-        ? "Belum ada catatan permainan."
-        : "No game records yet.";
+    emptyMessage.className = "empty-state";
+    emptyMessage.textContent = t("emptyLeaderboard");
 
     elements.leaderboardList.appendChild(emptyMessage);
 
     return;
   }
 
-  leaderboard.forEach((entry, index) => {
-    const item = document.createElement("div");
+  leaderboard
+    .slice(0, CONFIG.leaderboardLimit)
+    .forEach((entry, index) => {
+      const item = document.createElement("div");
+      item.className = "leaderboard-item";
 
-    item.className = "leaderboard-item";
+      const rank = document.createElement("span");
+      rank.className = "leaderboard-rank";
+      rank.textContent = `#${index + 1}`;
 
-    const rank = document.createElement("span");
-    rank.textContent = `#${index + 1}`;
+      const category = document.createElement("span");
+      category.className = "leaderboard-category";
+      category.textContent =
+        t(`categories.${entry.category}`);
 
-    const category = document.createElement("span");
-    category.textContent =
-      t(`categories.${entry.category}`);
+      const score = document.createElement("strong");
+      score.className = "leaderboard-score";
+      score.textContent = `${Number(entry.score) || 0} ${t("points")}`;
 
-    const score = document.createElement("strong");
-    score.textContent = `${entry.score} pts`;
+      item.append(rank, category, score);
 
-    item.append(rank, category, score);
-
-    elements.leaderboardList.appendChild(item);
-  });
+      elements.leaderboardList.appendChild(item);
+    });
 }
 
-/* =========================
-   EVENT LISTENERS
-========================= */
+/* =========================================================
+   22. EXIT AND RESET GAME
+========================================================= */
+
+function stopCurrentGame() {
+  state.gameSession++;
+
+  state.gameActive = false;
+  state.answered = false;
+
+  stopTimer();
+  clearAnswerTimeout();
+
+  resetAnswerButtons();
+}
+
+function exitGame() {
+  if (!state.gameActive) {
+    stopCurrentGame();
+    showScreen("home");
+    return;
+  }
+
+  if (!window.confirm(t("exitConfirm"))) {
+    return;
+  }
+
+  stopCurrentGame();
+  showScreen("home");
+}
+
+function returnHome() {
+  stopCurrentGame();
+  showScreen("home");
+}
+
+/* =========================================================
+   23. EVENT LISTENERS
+========================================================= */
 
 function setupEventListeners() {
   elements.startButton?.addEventListener(
     "click",
-    openCategorySelection
+    () => {
+      playSound("click");
+      openCategorySelection();
+    }
   );
 
   elements.languageButton?.addEventListener(
@@ -1096,19 +1707,7 @@ function setupEventListeners() {
 
   elements.exitGameButton?.addEventListener(
     "click",
-    () => {
-      if (!state.gameActive) {
-        showScreen("home");
-        return;
-      }
-
-      if (confirm(t("exitConfirm"))) {
-        state.gameSession++;
-        state.gameActive = false;
-        stopTimer();
-        showScreen("home");
-      }
-    }
+    exitGame
   );
 
   elements.answerOptions?.addEventListener(
@@ -1118,7 +1717,7 @@ function setupEventListeners() {
         ".answer-option"
       );
 
-      if (!button) {
+      if (!button || button.disabled) {
         return;
       }
 
@@ -1129,6 +1728,8 @@ function setupEventListeners() {
   elements.playAgainButton?.addEventListener(
     "click",
     () => {
+      playSound("click");
+
       if (state.currentCategory) {
         startGame(state.currentCategory);
       } else {
@@ -1139,62 +1740,100 @@ function setupEventListeners() {
 
   elements.homeButton?.addEventListener(
     "click",
-    () => {
-      state.gameSession++;
-      state.gameActive = false;
-      stopTimer();
-      showScreen("home");
-    }
+    returnHome
   );
 
   $$("[data-category]").forEach((button) => {
     button.addEventListener("click", () => {
       const category = button.dataset.category;
 
-      if (category) {
-        startGame(category);
+      if (!CONFIG.categories.includes(category)) {
+        return;
       }
+
+      playSound("click");
+      startGame(category);
     });
   });
 
   $$("[data-screen]").forEach((button) => {
     button.addEventListener("click", () => {
-      const screenName = button.dataset.screen;
+      const screenName = normalizeScreenName(
+        button.dataset.screen
+      );
 
-      if (
-        ["home", "category", "leaderboard"].includes(screenName)
-      ) {
-        if (state.gameActive && screenName !== "game") {
-          return;
-        }
+      if (!screenName) {
+        return;
+      }
 
-        if (screenName === "category") {
-          openCategorySelection();
-        } else {
-          showScreen(screenName);
-        }
+      if (state.gameActive) {
+        return;
+      }
+
+      playSound("click");
+
+      if (screenName === "category") {
+        openCategorySelection();
+        return;
+      }
+
+      if (screenName === "home") {
+        showScreen("home");
+        return;
+      }
+
+      if (screenName === "leaderboard") {
+        renderLeaderboard();
+        showScreen("leaderboard");
       }
     });
   });
 }
 
-/* =========================
-   APPLICATION INITIALIZATION
-========================= */
+/* =========================================================
+   24. APPLICATION INITIALIZATION
+========================================================= */
 
 function initializeApp() {
+  if (!elements.app) {
+    console.error(
+      "TRIVION initialization failed: #app element not found."
+    );
+
+    return;
+  }
+
   setupEventListeners();
 
   updateStaticLanguage();
+  updateSoundLabel();
+  updateStatistics();
+  renderLeaderboard();
+
+  resetAnswerButtons();
 
   showScreen("home");
 
-  console.log(
+  console.info(
     "TRIVION initialized successfully."
   );
 }
 
-document.addEventListener(
-  "DOMContentLoaded",
-  initializeApp
-);
+/* =========================================================
+   25. START APPLICATION
+========================================================= */
+
+if (document.readyState === "loading") {
+  document.addEventListener(
+    "DOMContentLoaded",
+    initializeApp,
+    { once: true }
+  );
+} else {
+  initializeApp();
+}
+
+/* =========================================================
+   END OF TRIVION APPLICATION
+   Developed by Alpha Omega Store
+   ========================================================= */
