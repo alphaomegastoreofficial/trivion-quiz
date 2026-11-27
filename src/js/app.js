@@ -235,42 +235,7 @@ const elements = {
 };
 
 /* =========================================================
-   4. APPLICATION STATE
-========================================================= */
-
-const state = {
-  language: loadSetting(CONFIG.storage.language, "id"),
-  soundEnabled: loadSetting(CONFIG.storage.sound, false),
-
-  questions: [],
-  selectedQuestions: [],
-  currentQuestionIndex: 0,
-
-  currentCategory: null,
-  currentQuestion: null,
-
-  score: 0,
-  correctCount: 0,
-  wrongCount: 0,
-
-  timeLeft: 0,
-  timerInterval: null,
-  answerTimeout: null,
-
-  answered: false,
-  gameActive: false,
-  gameSession: 0,
-
-  lastAnswer: null,
-  wasTimeout: false,
-  lastFeedbackCorrect: false,
-
-  bankLoading: false,
-  bankLoadPromise: null
-};
-
-/* =========================================================
-   5. STORAGE SYSTEM
+   4. STORAGE SYSTEM
 ========================================================= */
 
 function loadSetting(key, fallback) {
@@ -306,7 +271,7 @@ function loadJSON(key, fallback) {
   try {
     const saved = localStorage.getItem(key);
 
-    if (!saved) {
+    if (saved === null) {
       return fallback;
     }
 
@@ -335,27 +300,114 @@ function getDefaultStatistics() {
   };
 }
 
+function safeNumber(value) {
+  const number = Number(value);
+
+  if (!Number.isFinite(number) || number < 0) {
+    return 0;
+  }
+
+  return Math.floor(number);
+}
+
 function getStatistics() {
   const saved = loadJSON(
     CONFIG.storage.statistics,
     getDefaultStatistics()
   );
 
+  if (!saved || typeof saved !== "object" || Array.isArray(saved)) {
+    return getDefaultStatistics();
+  }
+
   return {
-    totalGames: Number(saved.totalGames) || 0,
-    totalScore: Number(saved.totalScore) || 0,
-    bestScore: Number(saved.bestScore) || 0
+    totalGames: safeNumber(saved.totalGames),
+    totalScore: safeNumber(saved.totalScore),
+    bestScore: safeNumber(saved.bestScore)
   };
 }
 
-function getLeaderboard() {
-  const saved = loadJSON(
-    CONFIG.storage.leaderboard,
-    []
-  );
+function isValidLeaderboardEntry(entry) {
+  if (!entry || typeof entry !== "object" || Array.isArray(entry)) {
+    return false;
+  }
 
-  return Array.isArray(saved) ? saved : [];
+  return (
+    Number.isFinite(Number(entry.score)) &&
+    Number(entry.score) >= 0 &&
+    Number.isFinite(Number(entry.correct)) &&
+    Number(entry.correct) >= 0 &&
+    Number.isFinite(Number(entry.wrong)) &&
+    Number(entry.wrong) >= 0 &&
+    CONFIG.categories.includes(entry.category)
+  );
 }
+
+function getLeaderboard() {
+  const saved = loadJSON(CONFIG.storage.leaderboard, []);
+
+  if (!Array.isArray(saved)) {
+    return [];
+  }
+
+  return saved
+    .filter(isValidLeaderboardEntry)
+    .map((entry) => ({
+      score: safeNumber(entry.score),
+      correct: safeNumber(entry.correct),
+      wrong: safeNumber(entry.wrong),
+      category: entry.category,
+      date: typeof entry.date === "string" ? entry.date : ""
+    }))
+    .sort((first, second) => {
+      if (second.score !== first.score) {
+        return second.score - first.score;
+      }
+
+      return second.correct - first.correct;
+    })
+    .slice(0, CONFIG.leaderboardLimit);
+}
+
+/* =========================================================
+   5. APPLICATION STATE
+========================================================= */
+
+const savedLanguage = loadSetting(CONFIG.storage.language, "id");
+
+const state = {
+  language: ["id", "en"].includes(savedLanguage)
+    ? savedLanguage
+    : "id",
+
+  soundEnabled: loadSetting(CONFIG.storage.sound, false),
+
+  questions: [],
+  selectedQuestions: [],
+  currentQuestionIndex: 0,
+
+  currentCategory: null,
+  currentQuestion: null,
+
+  score: 0,
+  correctCount: 0,
+  wrongCount: 0,
+
+  timeLeft: 0,
+  timerInterval: null,
+  answerTimeout: null,
+
+  answered: false,
+  gameActive: false,
+  gameSession: 0,
+
+  lastAnswer: null,
+  wasTimeout: false,
+  lastFeedbackCorrect: false,
+
+  bankLoading: false,
+  bankLoadPromise: null
+};
 
 /* =========================================================
    6. LANGUAGE SYSTEM
@@ -387,6 +439,34 @@ function localized(value) {
   );
 }
 
+function updateDocumentLanguage() {
+  document.documentElement.lang = state.language;
+}
+
+function updateHomeTitle() {
+  if (!elements.homeTitle) {
+    return;
+  }
+
+  const brand = $("span", elements.homeTitle);
+
+  if (!brand) {
+    elements.homeTitle.textContent = t("homeTitle");
+    return;
+  }
+
+  brand.textContent = "TRIVION";
+
+  const prefix = state.language === "id"
+    ? "Selamat Datang di "
+    : "Welcome to ";
+
+  elements.homeTitle.replaceChildren(
+    document.createTextNode(prefix),
+    brand
+  );
+}
+
 function toggleLanguage() {
   state.language = state.language === "id" ? "en" : "id";
 
@@ -396,9 +476,8 @@ function toggleLanguage() {
 }
 
 function updateStaticLanguage() {
-  if (elements.homeTitle) {
-    elements.homeTitle.textContent = t("homeTitle");
-  }
+  updateDocumentLanguage();
+  updateHomeTitle();
 
   if (elements.homeDescription) {
     elements.homeDescription.textContent = t("homeDescription");
@@ -431,8 +510,7 @@ function updateStaticLanguage() {
   }
 
   if (elements.exitGameButton) {
-    elements.exitGameButton.textContent =
-      `← ${t("exit")}`;
+    elements.exitGameButton.textContent = `← ${t("exit")}`;
   }
 
   updateHomeStaticText();
@@ -447,7 +525,6 @@ function updateStaticLanguage() {
 
   if (state.currentQuestion && state.gameActive) {
     updateQuestionLanguage();
-    updateAnswerFeedbackLanguage();
   }
 
   if (state.currentCategory && elements.currentCategory) {
@@ -539,9 +616,25 @@ function updateCategoryStaticText() {
     backButton.textContent = `← ${t("backHome")}`;
   }
 
-  const categoryButtons = $$("[data-category]");
+  const englishNames = {
+    general: "General Knowledge",
+    science: "Science & Technology",
+    history: "History & Culture",
+    math: "Mathematics & Logic",
+    nature: "Nature & Environment",
+    trivia: "Riddles & Trivia"
+  };
 
-  categoryButtons.forEach((button) => {
+  const indonesianNames = {
+    general: "Pengetahuan Umum",
+    science: "Sains dan Teknologi",
+    history: "Sejarah dan Budaya",
+    math: "Matematika dan Logika",
+    nature: "Alam dan Lingkungan",
+    trivia: "Teka-teki dan Trivia"
+  };
+
+  $$("[data-category]").forEach((button) => {
     const category = button.dataset.category;
     const title = $("strong", button);
     const subtitle = $("small", button);
@@ -550,29 +643,10 @@ function updateCategoryStaticText() {
       title.textContent = t(`categories.${category}`);
     }
 
-    if (subtitle) {
-      const englishNames = {
-        general: "General Knowledge",
-        science: "Science & Technology",
-        history: "History & Culture",
-        math: "Mathematics & Logic",
-        nature: "Nature & Environment",
-        trivia: "Riddles & Trivia"
-      };
-
-      const indonesianNames = {
-        general: "Pengetahuan Umum",
-        science: "Sains dan Teknologi",
-        history: "Sejarah dan Budaya",
-        math: "Matematika dan Logika",
-        nature: "Alam dan Lingkungan",
-        trivia: "Teka-teki dan Trivia"
-      };
-
-      subtitle.textContent =
-        state.language === "id"
-          ? englishNames[category]
-          : indonesianNames[category];
+    if (subtitle && CONFIG.categories.includes(category)) {
+      subtitle.textContent = state.language === "id"
+        ? englishNames[category]
+        : indonesianNames[category];
     }
   });
 }
@@ -698,7 +772,9 @@ function playSound(type) {
     }
 
     if (audioContext.state === "suspended") {
-      audioContext.resume();
+      audioContext.resume().catch((error) => {
+        console.warn("Could not resume audio:", error);
+      });
     }
 
     const frequencies = {
@@ -714,10 +790,7 @@ function playSound(type) {
     oscillator.type = "sine";
     oscillator.frequency.value = frequencies[type] || 440;
 
-    gain.gain.setValueAtTime(
-      0.12,
-      audioContext.currentTime
-    );
+    gain.gain.setValueAtTime(0.12, audioContext.currentTime);
 
     gain.gain.exponentialRampToValueAtTime(
       0.001,
@@ -743,9 +816,12 @@ function updateSoundLabel() {
   if (elements.soundButton) {
     elements.soundButton.setAttribute(
       "aria-label",
-      state.soundEnabled
-        ? "Turn sound off"
-        : "Turn sound on"
+      state.soundEnabled ? "Turn sound off" : "Turn sound on"
+    );
+
+    elements.soundButton.setAttribute(
+      "aria-pressed",
+      String(state.soundEnabled)
     );
   }
 }
@@ -753,10 +829,7 @@ function updateSoundLabel() {
 function toggleSound() {
   state.soundEnabled = !state.soundEnabled;
 
-  saveSetting(
-    CONFIG.storage.sound,
-    state.soundEnabled
-  );
+  saveSetting(CONFIG.storage.sound, state.soundEnabled);
 
   updateSoundLabel();
   playSound("click");
@@ -783,10 +856,7 @@ function normalizeScreenName(value) {
     .replace("-screen", "")
     .trim();
 
-  return Object.prototype.hasOwnProperty.call(
-    SCREEN_IDS,
-    normalized
-  )
+  return Object.prototype.hasOwnProperty.call(SCREEN_IDS, normalized)
     ? normalized
     : null;
 }
@@ -815,10 +885,7 @@ function showScreen(screenName) {
   $$("[data-screen]").forEach((button) => {
     const target = normalizeScreenName(button.dataset.screen);
 
-    button.classList.toggle(
-      "active",
-      target === normalized
-    );
+    button.classList.toggle("active", target === normalized);
   });
 
   if (elements.footer) {
@@ -851,31 +918,22 @@ function localizedForValidation(value) {
     return value.trim().length > 0;
   }
 
-  if (!value || typeof value !== "object") {
+  if (!value || typeof value !== "object" || Array.isArray(value)) {
     return false;
   }
 
-  return Boolean(
-    (
-      typeof value.id === "string" &&
-      value.id.trim().length > 0
-    ) ||
-    (
-      typeof value.en === "string" &&
-      value.en.trim().length > 0
-    )
+  return (
+    (typeof value.id === "string" && value.id.trim().length > 0) ||
+    (typeof value.en === "string" && value.en.trim().length > 0)
   );
 }
 
 function validateQuestion(question) {
-  if (!question || typeof question !== "object") {
+  if (!question || typeof question !== "object" || Array.isArray(question)) {
     return false;
   }
 
-  if (
-    typeof question.id !== "string" ||
-    !question.id.trim()
-  ) {
+  if (typeof question.id !== "string" || !question.id.trim()) {
     return false;
   }
 
@@ -883,11 +941,7 @@ function validateQuestion(question) {
     return false;
   }
 
-  if (
-    !["easy", "medium", "hard"].includes(
-      question.difficulty
-    )
-  ) {
+  if (!["easy", "medium", "hard"].includes(question.difficulty)) {
     return false;
   }
 
@@ -897,7 +951,8 @@ function validateQuestion(question) {
 
   if (
     !question.options ||
-    typeof question.options !== "object"
+    typeof question.options !== "object" ||
+    Array.isArray(question.options)
   ) {
     return false;
   }
@@ -1067,9 +1122,8 @@ async function startGame(category) {
     return;
   }
 
-  state.selectedQuestions = shuffleArray(
-    availableQuestions
-  ).slice(0, CONFIG.questionsPerGame);
+  state.selectedQuestions = shuffleArray(availableQuestions)
+    .slice(0, CONFIG.questionsPerGame);
 
   state.currentQuestionIndex = 0;
 
@@ -1125,6 +1179,7 @@ function renderQuestion() {
       (questionNumber / state.selectedQuestions.length) * 100;
 
     elements.questionProgress.style.width = `${progress}%`;
+
     elements.questionProgress.setAttribute(
       "aria-valuenow",
       String(Math.round(progress))
@@ -1143,14 +1198,10 @@ function renderQuestion() {
   if (elements.answerFeedback) {
     elements.answerFeedback.hidden = true;
     elements.answerFeedback.textContent = "";
-    elements.answerFeedback.classList.remove(
-      "correct",
-      "incorrect"
-    );
+    elements.answerFeedback.classList.remove("correct", "incorrect");
   }
 
   updateQuestionLanguage();
-
   startTimer(question.difficulty);
 }
 
@@ -1162,8 +1213,7 @@ function updateQuestionLanguage() {
   }
 
   if (elements.questionText) {
-    elements.questionText.textContent =
-      localized(question.question);
+    elements.questionText.textContent = localized(question.question);
   }
 
   ["A", "B", "C", "D"].forEach((answer) => {
@@ -1178,8 +1228,7 @@ function updateQuestionLanguage() {
     const textElement = $(".answer-text", button);
 
     if (textElement) {
-      textElement.textContent =
-        localized(question.options[answer]);
+      textElement.textContent = localized(question.options[answer]);
     }
   });
 
@@ -1289,13 +1338,10 @@ function handleAnswer(selectedAnswer) {
 
   if (isCorrect) {
     state.correctCount++;
-
     state.score += CONFIG.pointsPerCorrectAnswer;
-
     playSound("correct");
   } else {
     state.wrongCount++;
-
     playSound("wrong");
   }
 
@@ -1469,8 +1515,7 @@ function goToNextQuestion() {
   state.currentQuestionIndex++;
 
   if (
-    state.currentQuestionIndex >=
-    state.selectedQuestions.length
+    state.currentQuestionIndex >= state.selectedQuestions.length
   ) {
     finishGame();
     return;
@@ -1507,18 +1552,15 @@ function finishGame() {
   }
 
   if (elements.correctAnswers) {
-    elements.correctAnswers.textContent =
-      state.correctCount;
+    elements.correctAnswers.textContent = state.correctCount;
   }
 
   if (elements.wrongAnswers) {
-    elements.wrongAnswers.textContent =
-      state.wrongCount;
+    elements.wrongAnswers.textContent = state.wrongCount;
   }
 
   if (elements.accuracyRate) {
-    elements.accuracyRate.textContent =
-      `${accuracy}%`;
+    elements.accuracyRate.textContent = `${accuracy}%`;
   }
 
   saveGameResult();
@@ -1537,25 +1579,22 @@ function finishGame() {
 function saveGameResult() {
   const statistics = getStatistics();
 
-  statistics.totalGames++;
-  statistics.totalScore += state.score;
+  statistics.totalGames += 1;
+  statistics.totalScore += safeNumber(state.score);
 
   statistics.bestScore = Math.max(
     statistics.bestScore,
-    state.score
+    safeNumber(state.score)
   );
 
-  saveJSON(
-    CONFIG.storage.statistics,
-    statistics
-  );
+  saveJSON(CONFIG.storage.statistics, statistics);
 
   const leaderboard = getLeaderboard();
 
   leaderboard.push({
-    score: state.score,
-    correct: state.correctCount,
-    wrong: state.wrongCount,
+    score: safeNumber(state.score),
+    correct: safeNumber(state.correctCount),
+    wrong: safeNumber(state.wrongCount),
     category: state.currentCategory,
     date: new Date().toISOString()
   });
@@ -1582,18 +1621,15 @@ function updateStatistics() {
   const statistics = getStatistics();
 
   if (elements.totalScore) {
-    elements.totalScore.textContent =
-      statistics.totalScore;
+    elements.totalScore.textContent = statistics.totalScore;
   }
 
   if (elements.totalGames) {
-    elements.totalGames.textContent =
-      statistics.totalGames;
+    elements.totalGames.textContent = statistics.totalGames;
   }
 
   if (elements.bestScore) {
-    elements.bestScore.textContent =
-      statistics.bestScore;
+    elements.bestScore.textContent = statistics.bestScore;
   }
 }
 
@@ -1608,7 +1644,7 @@ function renderLeaderboard() {
 
   const leaderboard = getLeaderboard();
 
-  elements.leaderboardList.innerHTML = "";
+  elements.leaderboardList.replaceChildren();
 
   if (leaderboard.length === 0) {
     const emptyMessage = document.createElement("p");
@@ -1621,29 +1657,26 @@ function renderLeaderboard() {
     return;
   }
 
-  leaderboard
-    .slice(0, CONFIG.leaderboardLimit)
-    .forEach((entry, index) => {
-      const item = document.createElement("div");
-      item.className = "leaderboard-item";
+  leaderboard.forEach((entry, index) => {
+    const item = document.createElement("div");
+    item.className = "leaderboard-item";
 
-      const rank = document.createElement("span");
-      rank.className = "leaderboard-rank";
-      rank.textContent = `#${index + 1}`;
+    const rank = document.createElement("span");
+    rank.className = "leaderboard-rank";
+    rank.textContent = `#${index + 1}`;
 
-      const category = document.createElement("span");
-      category.className = "leaderboard-category";
-      category.textContent =
-        t(`categories.${entry.category}`);
+    const category = document.createElement("span");
+    category.className = "leaderboard-category";
+    category.textContent = t(`categories.${entry.category}`);
 
-      const score = document.createElement("strong");
-      score.className = "leaderboard-score";
-      score.textContent = `${Number(entry.score) || 0} ${t("points")}`;
+    const score = document.createElement("strong");
+    score.className = "leaderboard-score";
+    score.textContent = `${entry.score} ${t("points")}`;
 
-      item.append(rank, category, score);
+    item.append(rank, category, score);
 
-      elements.leaderboardList.appendChild(item);
-    });
+    elements.leaderboardList.appendChild(item);
+  });
 }
 
 /* =========================================================
@@ -1687,13 +1720,10 @@ function returnHome() {
 ========================================================= */
 
 function setupEventListeners() {
-  elements.startButton?.addEventListener(
-    "click",
-    () => {
-      playSound("click");
-      openCategorySelection();
-    }
-  );
+  elements.startButton?.addEventListener("click", () => {
+    playSound("click");
+    openCategorySelection();
+  });
 
   elements.languageButton?.addEventListener(
     "click",
@@ -1710,33 +1740,31 @@ function setupEventListeners() {
     exitGame
   );
 
-  elements.answerOptions?.addEventListener(
-    "click",
-    (event) => {
-      const button = event.target.closest(
-        ".answer-option"
-      );
+  elements.answerOptions?.addEventListener("click", (event) => {
+    const target = event.target;
 
-      if (!button || button.disabled) {
-        return;
-      }
-
-      handleAnswer(button.dataset.answer);
+    if (!(target instanceof Element)) {
+      return;
     }
-  );
 
-  elements.playAgainButton?.addEventListener(
-    "click",
-    () => {
-      playSound("click");
+    const button = target.closest(".answer-option");
 
-      if (state.currentCategory) {
-        startGame(state.currentCategory);
-      } else {
-        openCategorySelection();
-      }
+    if (!button || button.disabled) {
+      return;
     }
-  );
+
+    handleAnswer(button.dataset.answer);
+  });
+
+  elements.playAgainButton?.addEventListener("click", () => {
+    playSound("click");
+
+    if (state.currentCategory) {
+      startGame(state.currentCategory);
+    } else {
+      openCategorySelection();
+    }
+  });
 
   elements.homeButton?.addEventListener(
     "click",
@@ -1803,6 +1831,8 @@ function initializeApp() {
     return;
   }
 
+  updateDocumentLanguage();
+
   setupEventListeners();
 
   updateStaticLanguage();
@@ -1814,9 +1844,7 @@ function initializeApp() {
 
   showScreen("home");
 
-  console.info(
-    "TRIVION initialized successfully."
-  );
+  console.info("TRIVION initialized successfully.");
 }
 
 /* =========================================================
