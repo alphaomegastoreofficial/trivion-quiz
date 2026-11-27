@@ -1040,6 +1040,55 @@ a {
     }
 }
 
+/* =====================================================
+   18. GAMEPLAY STATE — JAVASCRIPT INTEGRATION
+===================================================== */
+
+/* Selected answer */
+.answer-option.selected {
+    border-color: var(--gold-400);
+    background: rgba(214, 180, 106, 0.10);
+}
+
+/* Correct answer */
+.answer-option.correct {
+    border-color: var(--success);
+    background: rgba(70, 200, 138, 0.14);
+}
+
+/* Incorrect answer */
+.answer-option.incorrect,
+.answer-option.wrong {
+    border-color: var(--danger);
+    background: rgba(241, 108, 115, 0.14);
+}
+
+/* Timer warning: 10 seconds or less */
+#timer-display.timer-warning {
+    color: var(--danger);
+    animation: timer-pulse 0.6s ease infinite alternate;
+}
+
+/* Correct and incorrect feedback */
+.feedback-message.correct {
+    color: var(--success);
+}
+
+.feedback-message.incorrect {
+    color: var(--danger);
+}
+
+/* Disabled answer buttons */
+.answer-option:disabled {
+    cursor: not-allowed;
+    opacity: 0.85;
+}
+
+/* Hidden footer and screens */
+[hidden] {
+    display: none !important;
+}
+
 
 /* =====================================================
    END OF TRIVION MAIN STYLESHEET
